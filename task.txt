@@ -1,0 +1,118 @@
+NERDYFICTION — WHERE I LEFT OFF
+================================
+Last updated: 2026-06-13 (mid-session)
+Project root: C:\Users\Sanjesh Dubey\Desktop\ordinary gods\nerdyfiction
+Source manuscript: ..\New Text Document.txt  (only lines 1–156 in scope)
+
+Read HANDOFF.md FIRST. This file is the short-form "you are here" pointer.
+
+WHAT'S ALREADY DONE
+-------------------
+Tasks 1, 2, 3 from HANDOFF.md §5 are complete:
+  - Astro + Tailwind + GSAP + sitemap scaffolded; npm install ran.
+  - Content schemas in src/content/config.ts (books, chapters, scenes).
+  - src/content/books/ordinary-gods.json written.
+  - SEO foundation:
+      src/layouts/BaseLayout.astro
+      src/components/SeoHead.astro
+      src/lib/seo.ts        (canonical, siteJsonLd, bookJsonLd, chapterJsonLd, breadcrumbJsonLd)
+      src/lib/nav.ts        (bookHref, chapterHref, seriesHref, slugify)
+      src/pages/rss.xml.ts
+      public/robots.txt, public/favicon.svg
+  - Homepage building blocks (NOT the page itself yet):
+      src/components/Starfield.astro
+      src/components/BookCover.astro
+      src/components/CharacterSilhouette.astro   (6 poses, SVG paths)
+      src/components/AnimatedBookCard.astro       (GSAP timeline on hover)
+
+WHAT I AM ABOUT TO DO (in order)
+--------------------------------
+1. src/pages/index.astro
+     - Uses BaseLayout (immersive=false)
+     - Hero section over <Starfield />, headline + sub
+     - "Now Reading" shelf: getCollection('books'), render <AnimatedBookCard book={...} /> for each
+     - tagline section + CTA to /books
+     - JSON-LD via SeoHead: pass jsonLd=[bookJsonLd(firstBook)] (siteJsonLd is automatic in SeoHead)
+
+2. src/pages/books/index.astro
+     - Grid of all books, each link wraps <BookCover size="md" />
+     - Uses BaseLayout
+
+3. src/pages/about.astro
+     - Short page explaining the imprint, the interactive-novel concept.
+
+4. src/components/ChapterCard.astro
+     - Used on the book detail page. Shows chapter number, title, summary,
+       estimated minutes; page-flip hover (CSS transform: subtle perspective).
+
+5. src/pages/books/[slug]/index.astro
+     - getStaticPaths over books; for each book, list its chapters sorted by number.
+     - Renders a giant BookCover + tagline + characters list + chapter cards.
+     - SeoHead with type="book", jsonLd=[bookJsonLd(book), breadcrumbJsonLd(...)]
+
+6. src/components/SceneStage.astro
+     - Server-rendered: backdrop layer (switch on backdrop enum -> Starfield/gradient div/etc.)
+       + character silhouettes positioned left/center/right using CharacterSilhouette.
+     - Takes a single Scene as prop.
+
+7. src/components/ReaderShell.astro
+     - The interactive runner. Receives chapter (book + scenes[]) as a JSON-stringified
+       data attribute. Client script:
+         * Mounts a typewriter that types the current scene's text.
+         * "Next" advances scenes (Space / ArrowRight / click).
+         * On scene change, swaps SceneStage's data attributes; CSS transitions handle fade/iris/flash.
+         * GSAP plays fx: red-streak (overlay sweep), flash, book-float (small float anim on a stub),
+           time-pinch (slow-mo blur), tilt-world (slight perspective rotate).
+         * Audio cue label appears as a small bottom-left chip.
+         * Persists last scene index in localStorage keyed by chapter id.
+         * Progress bar at top.
+     - Use Astro view transitions for entry/exit.
+
+8. src/pages/books/[slug]/chapter-[n].astro
+     - getStaticPaths: every chapter (collection 'chapters').
+     - Renders BaseLayout immersive=true with <ReaderShell chapter={data} bookSlug={...} bookTitle={...} />.
+     - SeoHead: type="article", jsonLd=[chapterJsonLd(...), breadcrumbJsonLd(...)]
+
+9. src/content/chapters/ordinary-gods-1.json
+     - Convert manuscript lines 1–156 into scenes[].
+     - Section markers: "I." (Robert) — marker on the first Robert scene.
+     - Beats roughly:
+        * narration: opening "The universe does not announce itself" sequence (backdrop:"cosmos")
+        * transition: "· · ·"
+        * narration: "On the last night of 2026...12 hesitated" (cosmos)
+        * transition: "This is the story of four of them" (cosmos)
+        * marker "I." narration: waiting room intro (backdrop:"studio-city", chars:[robert seated])
+        * thought + narration beats: callback, 25 min waiting, etc.
+        * moment: book slips (fx:"time-pinch", transition:"slow-fade")
+        * moment: red streak (backdrop:"flash-red", fx:"red-streak", transition:"flash")
+        * narration: book hangs in air (fx:"book-float")
+        * narration: marcus enters
+        * dialog block — keep "really in the room" line as dialog (speaker:"Marcus Heinz")
+        * narration: walks out, sits in car (backdrop:"sunset-window")
+        * transition: "· · ·"
+     - keywords: ["Ordinary Gods","Chapter 1","Robert Calloway","visual novel"]
+     - publishedDate: "2026-06-13", estimatedMinutes: 12
+
+10. README.md  (how to add a book / how to add a chapter — mirror HANDOFF §7)
+
+11. cd nerdyfiction && npm run build
+    - Confirm: dist/sitemap-index.xml, dist/robots.txt, dist/rss.xml,
+      dist/index.html, dist/books/index.html, dist/books/ordinary-gods/index.html,
+      dist/books/ordinary-gods/chapter-1/index.html
+
+12. Update HANDOFF.md §5 — flip rows 3–8 to ✅, add notes.
+
+NOTES / GOTCHAS
+---------------
+- Tailwind colors used everywhere: ink-* (warm dark) and ember-* (red accent).
+- View transitions are wired in BaseLayout; AnimatedBookCard re-inits on astro:page-load.
+- GSAP is in vite.ssr.noExternal so client scripts can `import { gsap } from 'gsap'`.
+- @lib and @components path aliases are in tsconfig.json — use them in all imports.
+- DON'T re-run npm install. DON'T re-scaffold.
+- DON'T attempt to ship audio assets — audioCue is label-only.
+- Source text apostrophes are curly (’). Preserve them when copying lines into scene text.
+
+IF YOU GET INTERRUPTED AGAIN
+----------------------------
+Update this file's "WHAT I AM ABOUT TO DO" list with what's still pending and mark
+finished items with [DONE]. Then update HANDOFF.md §5 with any flipped rows.
