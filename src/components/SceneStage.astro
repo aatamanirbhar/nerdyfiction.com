@@ -1,0 +1,198 @@
+---
+/**
+ * SceneStage — backdrop + characters rendered per scene.
+ *
+ * Server-renders ALL backdrops AND all character SVGs ONCE; the ReaderShell
+ * client script swaps which ones are visible via [data-active] attributes,
+ * so scene transitions are pure CSS opacity + transform with no DOM churn.
+ *
+ * The "characters" we render here are unique (book.characters); their
+ * pose / position per scene is decided at runtime via data attributes.
+ */
+import Starfield from './Starfield.astro';
+import CharacterSilhouette from './CharacterSilhouette.astro';
+
+interface Props {
+  bookSlug: string;
+  characters: Array<{ id: string; silhouetteColor: string }>;
+}
+
+const { bookSlug, characters } = Astro.props;
+const POSES = ['idle', 'tense', 'reaching', 'reeling', 'seated', 'rising'] as const;
+---
+
+<div
+  class="scene-stage absolute inset-0 overflow-hidden"
+  data-scene-stage
+  data-backdrop="cosmos"
+  data-fx="none"
+>
+  <!-- ===== BACKDROPS (one wrapper per enum; opacity toggled by [data-active]) ===== -->
+  <div class="absolute inset-0 transition-opacity duration-700 ease-out" data-backdrop-layer="cosmos">
+    <Starfield density={110} tint="#050402" />
+  </div>
+
+  <div
+    class="absolute inset-0 transition-opacity duration-700 ease-out opacity-0"
+    data-backdrop-layer="studio-city"
+    style="background:
+      radial-gradient(ellipse at 70% 30%, rgba(255,150,80,0.18), transparent 60%),
+      radial-gradient(circle at 20% 80%, rgba(255,59,26,0.10), transparent 55%),
+      linear-gradient(160deg, #1a1208 0%, #2a1d0c 60%, #0a0805 100%);"
+  >
+    <!-- LA traffic ribbon (subtle horizontal lights) -->
+    <div
+      class="absolute bottom-[18%] left-0 right-0 h-1.5 opacity-50"
+      style="background:
+        repeating-linear-gradient(90deg, rgba(255,180,80,0.6) 0 4px, transparent 4px 18px),
+        repeating-linear-gradient(90deg, rgba(255,80,60,0.45) 0 3px, transparent 3px 22px);
+        background-position: 0 0, 12px 2px;
+        filter: blur(1.5px);"
+    ></div>
+    <!-- window frame vignette -->
+    <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 200px rgba(0,0,0,0.75);"></div>
+  </div>
+
+  <div
+    class="absolute inset-0 transition-opacity duration-700 ease-out opacity-0"
+    data-backdrop-layer="inglewood"
+    style="background:
+      radial-gradient(ellipse at 50% 50%, rgba(60,120,80,0.22), transparent 70%),
+      linear-gradient(180deg, #08110a 0%, #0a0805 100%);"
+  >
+    <!-- plasma TV flicker -->
+    <div class="absolute inset-0 animate-flicker" style="background: radial-gradient(ellipse at 50% 45%, rgba(120,220,160,0.10), transparent 50%);"></div>
+  </div>
+
+  <div
+    class="absolute inset-0 transition-opacity duration-700 ease-out opacity-0"
+    data-backdrop-layer="void"
+    style="background: #000;"
+  ></div>
+
+  <div
+    class="absolute inset-0 transition-opacity duration-200 ease-in opacity-0"
+    data-backdrop-layer="flash-red"
+    style="background:
+      radial-gradient(ellipse at 50% 50%, #ff3b1a 0%, #8a0a00 60%, #000 100%);"
+  ></div>
+
+  <div
+    class="absolute inset-0 transition-opacity duration-700 ease-out opacity-0"
+    data-backdrop-layer="sunset-window"
+    style="background:
+      linear-gradient(180deg, #2a1808 0%, #50220a 40%, #aa3a14 70%, #1a0a04 100%);"
+  >
+    <div
+      class="absolute bottom-[15%] left-0 right-0 h-2 opacity-60"
+      style="background:
+        repeating-linear-gradient(90deg, rgba(255,180,80,0.7) 0 4px, transparent 4px 20px);
+        filter: blur(1px);"
+    ></div>
+  </div>
+
+  <div
+    class="absolute inset-0 transition-opacity duration-700 ease-out opacity-0"
+    data-backdrop-layer="blank"
+    style="background: #0a0805;"
+  ></div>
+
+  <!-- ===== FX OVERLAYS ===== -->
+  <!-- red-streak: a horizontal lightning sweep -->
+  <div
+    class="absolute inset-0 pointer-events-none opacity-0"
+    data-fx-layer="red-streak"
+  >
+    <div
+      class="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-2"
+      style="background: linear-gradient(90deg, transparent 0%, #ff3b1a 40%, #ffffff 50%, #ff3b1a 60%, transparent 100%);
+             box-shadow: 0 0 40px 10px rgba(255,59,26,0.9);"
+      data-streak-bar
+    ></div>
+  </div>
+
+  <!-- flash: full white pop -->
+  <div
+    class="absolute inset-0 pointer-events-none opacity-0 bg-white"
+    data-fx-layer="flash"
+  ></div>
+
+  <!-- book-float: a small floating book at center stage -->
+  <div
+    class="absolute inset-0 pointer-events-none opacity-0 flex items-center justify-center"
+    data-fx-layer="book-float"
+  >
+    <div
+      class="w-24 h-32 rounded-r-sm shadow-[0_30px_60px_-10px_rgba(255,59,26,0.6)]"
+      style="background: linear-gradient(135deg, #0a0805, #3d321e);
+             border-left: 4px solid #ff3b1a;
+             transform: rotate(-6deg);"
+      data-float-book
+    ></div>
+  </div>
+
+  <!-- time-pinch: slow-mo blur veil -->
+  <div
+    class="absolute inset-0 pointer-events-none opacity-0"
+    data-fx-layer="time-pinch"
+    style="backdrop-filter: blur(2px); background: radial-gradient(ellipse at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.5) 100%);"
+  ></div>
+
+  <!-- tilt-world: handled on stage transform; this layer is just a vignette -->
+  <div
+    class="absolute inset-0 pointer-events-none opacity-0"
+    data-fx-layer="tilt-world"
+    style="box-shadow: inset 0 0 300px rgba(0,0,0,0.8);"
+  ></div>
+
+  <!-- ===== CHARACTERS ===== -->
+  <!-- Pre-render every character × every pose; show one at a time per slot. -->
+  <div class="absolute inset-0 pointer-events-none">
+    {characters.map(c => (
+      <div
+        class="absolute inset-0 transition-opacity duration-500 opacity-0"
+        data-character-layer={c.id}
+      >
+        <!-- one slot positioned absolutely; CSS class drives left/center/right -->
+        <div
+          class="absolute bottom-0 transition-all duration-700 ease-out"
+          data-character-slot={c.id}
+          style="left: 50%; transform: translateX(-50%);"
+        >
+          {POSES.map(p => (
+            <div
+              class="absolute bottom-0 left-1/2 -translate-x-1/2 opacity-0 transition-opacity duration-300"
+              data-character-pose={p}
+            >
+              <CharacterSilhouette
+                id={`${bookSlug}-${c.id}-${p}`}
+                pose={p}
+                color={c.silhouetteColor}
+                size="lg"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Bottom vignette so text stays readable -->
+  <div
+    class="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none"
+    style="background: linear-gradient(180deg, transparent 0%, rgba(5,4,2,0.7) 60%, rgba(5,4,2,0.95) 100%);"
+  ></div>
+</div>
+
+<style>
+  /* Character positions */
+  [data-character-slot][data-position="left"]   { left: 22%; transform: translateX(-50%); }
+  [data-character-slot][data-position="center"] { left: 50%; transform: translateX(-50%); }
+  [data-character-slot][data-position="right"]  { left: 78%; transform: translateX(-50%); }
+  [data-character-slot][data-position="offscreen"] { left: 50%; transform: translateX(-50%) translateY(60%); opacity: 0; }
+
+  /* Backdrop / character / pose activation */
+  [data-backdrop-layer][data-active="true"] { opacity: 1; }
+  [data-character-layer][data-active="true"] { opacity: 1; }
+  [data-character-pose][data-active="true"] { opacity: 1; position: relative; }
+</style>

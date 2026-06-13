@@ -1,0 +1,221 @@
+{
+  "$ref": "#/definitions/chapters",
+  "definitions": {
+    "chapters": {
+      "type": "object",
+      "properties": {
+        "book": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "collection": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "collection"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "slug": {
+                  "type": "string"
+                },
+                "collection": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "slug",
+                "collection"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "number": {
+          "type": "integer",
+          "exclusiveMinimum": 0
+        },
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 40,
+          "maxLength": 300
+        },
+        "publishedDate": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "integer",
+              "format": "unix-time"
+            }
+          ]
+        },
+        "estimatedMinutes": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "default": 20
+        },
+        "scenes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "narration",
+                  "thought",
+                  "dialog",
+                  "moment",
+                  "transition"
+                ]
+              },
+              "text": {
+                "type": "string"
+              },
+              "speaker": {
+                "type": "string"
+              },
+              "backdrop": {
+                "type": "string",
+                "enum": [
+                  "cosmos",
+                  "studio-city",
+                  "inglewood",
+                  "void",
+                  "flash-red",
+                  "sunset-window",
+                  "blank"
+                ],
+                "default": "cosmos"
+              },
+              "characters": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "pose": {
+                      "type": "string",
+                      "enum": [
+                        "idle",
+                        "tense",
+                        "reaching",
+                        "reeling",
+                        "seated",
+                        "rising"
+                      ],
+                      "default": "idle"
+                    },
+                    "position": {
+                      "type": "string",
+                      "enum": [
+                        "left",
+                        "center",
+                        "right",
+                        "offscreen"
+                      ],
+                      "default": "center"
+                    },
+                    "intensity": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1,
+                      "default": 0.85
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ],
+                  "additionalProperties": false
+                },
+                "default": []
+              },
+              "fx": {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "red-streak",
+                  "flash",
+                  "book-float",
+                  "time-pinch",
+                  "tilt-world"
+                ],
+                "default": "none"
+              },
+              "transition": {
+                "type": "string",
+                "enum": [
+                  "cut",
+                  "fade",
+                  "slow-fade",
+                  "flash",
+                  "iris"
+                ],
+                "default": "fade"
+              },
+              "audioCue": {
+                "type": "string"
+              },
+              "marker": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "book",
+        "number",
+        "title",
+        "summary",
+        "publishedDate",
+        "scenes"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

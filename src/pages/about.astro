@@ -1,0 +1,61 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { breadcrumbJsonLd } from '@lib/seo';
+
+const jsonLd = [
+  breadcrumbJsonLd([
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+  ]),
+];
+---
+
+<BaseLayout
+  title="About"
+  description="Nerdy Fiction is an imprint that presents original novels as cinematic, browser-native visual novels. No installs. No paywalls."
+  path="/about"
+  type="website"
+  jsonLd={jsonLd}
+>
+  <article class="max-w-2xl mx-auto px-6 py-20 prose-invert">
+    <header class="mb-12 text-center">
+      <p class="font-mono uppercase tracking-[0.3em] text-ember-400 text-xs">About</p>
+      <h1 class="font-display text-4xl sm:text-5xl mt-3 text-ink-50">
+        What is Nerdy Fiction?
+      </h1>
+    </header>
+
+    <div class="space-y-6 text-ink-100 leading-relaxed font-serif text-lg">
+      <p>
+        Nerdy Fiction is a small imprint experimenting with a simple question:
+        what if a novel didn&rsquo;t end at the page? What if every chapter were
+        staged like a film &mdash; backdrops, characters, weather, score &mdash;
+        and you, the reader, were the projector?
+      </p>
+
+      <p>
+        Every book here is presented as a <em>visual novel</em>: scene-by-scene,
+        with art and motion underneath the prose. Nothing to install. No
+        algorithm to feed. Just a story, rendered in your browser.
+      </p>
+
+      <h2 class="font-display text-2xl text-ember-400 mt-12">The Reading Experience</h2>
+      <p>
+        Click, tap, or press <kbd class="font-mono text-sm px-1.5 py-0.5 bg-ink-800 border border-ink-700 rounded">Space</kbd>
+        to advance through scenes. Hold the line, breathe with the beat, let the
+        backdrop settle. The story will wait for you.
+      </p>
+
+      <h2 class="font-display text-2xl text-ember-400 mt-12">What&rsquo;s Coming</h2>
+      <p>
+        We&rsquo;re starting with <em>Ordinary Gods</em>, Book One of
+        <em>The Chosen Ones</em>. New chapters publish on a rolling cadence and
+        the RSS feed is the surest way to catch them.
+      </p>
+
+      <p class="text-ink-300 italic mt-12">
+        &mdash; The Nerdy Fiction Team
+      </p>
+    </div>
+  </article>
+</BaseLayout>

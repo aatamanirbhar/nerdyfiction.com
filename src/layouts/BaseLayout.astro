@@ -1,0 +1,89 @@
+---
+import SeoHead from '@components/SeoHead.astro';
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  imageAlt?: string;
+  type?: 'website' | 'article' | 'book';
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  keywords?: string[];
+  jsonLd?: Array<Record<string, unknown>>;
+  noindex?: boolean;
+  /** When true the page hides the global nav (used by the immersive VN reader) */
+  immersive?: boolean;
+}
+
+const { immersive = false, ...seo } = Astro.props;
+const navYear = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0805" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <meta name="generator" content={Astro.generator} />
+    <SeoHead {...seo} />
+    <ViewTransitions />
+  </head>
+  <body class="min-h-full bg-ink-950 text-ink-100 font-serif antialiased selection:bg-ember-500/40 selection:text-ink-50">
+    {!immersive && (
+      <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-ink-950/70 border-b border-ink-700/50">
+        <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <a href="/" class="group flex items-center gap-2 font-display tracking-widest text-ink-100" data-astro-prefetch>
+            <span class="inline-block w-2 h-2 rounded-full bg-ember-500 animate-flicker" aria-hidden="true"></span>
+            NERDY FICTION
+          </a>
+          <div class="flex items-center gap-6 text-sm">
+            <a href="/books" class="text-ink-200 hover:text-ink-50 transition-colors" data-astro-prefetch>Books</a>
+            <a href="/about" class="text-ink-200 hover:text-ink-50 transition-colors" data-astro-prefetch>About</a>
+          </div>
+        </nav>
+      </header>
+    )}
+
+    <main class={immersive ? '' : 'pt-20'}>
+      <slot />
+    </main>
+
+    {!immersive && (
+      <footer class="mt-32 border-t border-ink-700/50">
+        <div class="max-w-6xl mx-auto px-6 py-10 text-sm text-ink-300 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p>© {navYear} Nerdy Fiction. All stories original.</p>
+          <div class="flex items-center gap-6">
+            <a href="/rss.xml" class="hover:text-ink-100 transition-colors">RSS</a>
+            <a href="/sitemap-index.xml" class="hover:text-ink-100 transition-colors">Sitemap</a>
+          </div>
+        </div>
+      </footer>
+    )}
+
+    <style is:global>
+      html { scroll-behavior: smooth; }
+      body { font-feature-settings: 'liga' 1, 'kern' 1; }
+      ::view-transition-old(root), ::view-transition-new(root) {
+        animation-duration: 0.45s;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </body>
+</html>

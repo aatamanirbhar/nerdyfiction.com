@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ReaderShell from '@components/ReaderShell.astro';
+import { chapterJsonLd, breadcrumbJsonLd } from '@lib/seo';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  const chapters = await getCollection('chapters');
+  const bookById = new Map(books.map(b => [b.id, b]));
+
+  return chapters.flatMap(c => {
+    const book = bookById.get(c.data.book.id);
+    if (!book) return [];
+    return [{
+      params: { slug: book.data.slug, n: String(c.data.number) },
+      props: { book, chapter: c },
+    }];
+  });
+}
+
+const { book, chapter } = Astro.props;
+const b = book.data;
+const ch = chapter.data;
+
+const jsonLd = [
+  chapterJsonLd({
+    bookSlug: b.slug,
+    bookTitle: b.title,
+    author: b.author,
+    number: ch.number,
+    title: ch.title,
+    summary: ch.summary,
+    publishedDate: ch.publishedDate,
+    estimatedMinutes: ch.estimatedMinutes,
+    keywords: ch.keywords,
+  }),
+  breadcrumbJsonLd([
+    { name: 'Home', path: '/' },
+    { name: 'Books', path: '/books' },
+    { name: b.title, path: `/books/${b.slug}` },
+    { name: `Chapter ${ch.number}`, path: `/books/${b.slug}/chapter-${ch.number}` },
+  ]),
+];
+---
+
+<BaseLayout
+  title={`${b.title} — Chapter ${ch.number}: ${ch.title}`}
+  description={ch.summary}
+  path={`/books/${b.slug}/chapter-${ch.number}`}
+  type="article"
+  publishedTime={ch.publishedDate.toISOString()}
+  author={b.author}
+  keywords={[...(ch.keywords ?? []), ...(b.keywords ?? [])]}
+  jsonLd={jsonLd}
+  immersive={true}
+>
+  <ReaderShell
+    chapterId={chapter.id}
+    bookSlug={b.slug}
+    bookTitle={b.title}
+    chapterNumber={ch.number}
+    chapterTitle={ch.title}
+    scenes={ch.scenes}
+    characters={b.characters.map(c => ({ id: c.id, name: c.name, silhouetteColor: c.silhouetteColor }))}
+  />
+</BaseLayout>

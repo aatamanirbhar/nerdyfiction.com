@@ -1,0 +1,126 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Starfield from '@components/Starfield.astro';
+import AnimatedBookCard from '@components/AnimatedBookCard.astro';
+import { bookJsonLd } from '@lib/seo';
+import { bookHref } from '@lib/nav';
+
+const books = (await getCollection('books')).sort(
+  (a, b) => +b.data.publishedDate - +a.data.publishedDate
+);
+const featured = books[0];
+
+const jsonLd = featured
+  ? [bookJsonLd({
+      slug: featured.data.slug,
+      title: featured.data.title,
+      series: featured.data.series,
+      author: featured.data.author,
+      description: featured.data.description,
+      publishedDate: featured.data.publishedDate,
+      keywords: featured.data.keywords,
+    })]
+  : [];
+---
+
+<BaseLayout
+  title="Books as visual novels"
+  description="Original fiction told as cinematic, interactive visual novels. Read Ordinary Gods — Book One of The Chosen Ones, free on nerdyfiction.com."
+  path="/"
+  type="website"
+  keywords={['interactive fiction', 'visual novel website', 'web novel', 'Ordinary Gods', 'The Chosen Ones']}
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="relative min-h-[88vh] flex items-center justify-center overflow-hidden">
+    <Starfield density={90} />
+    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+      <p class="font-mono uppercase tracking-[0.35em] text-ember-400 text-xs mb-6 animate-fade-in">
+        Nerdy Fiction Presents
+      </p>
+      <h1 class="font-display text-5xl sm:text-6xl md:text-7xl leading-[1.05] text-ink-50 animate-fade-up">
+        Stories you don&rsquo;t just read.<br />
+        <span class="text-ember-500">You step into them.</span>
+      </h1>
+      <p class="mt-8 text-lg sm:text-xl text-ink-200 leading-relaxed animate-fade-up" style="animation-delay: 200ms;">
+        Original novels presented as cinematic visual novels &mdash; backdrops,
+        characters, and scene transitions woven through every chapter.
+      </p>
+      <div class="mt-10 flex items-center justify-center gap-4 animate-fade-up" style="animation-delay: 400ms;">
+        {featured && (
+          <a
+            href={bookHref(featured.data.slug)}
+            class="inline-flex items-center gap-2 bg-ember-500 hover:bg-ember-600 text-ink-50 font-display tracking-wider uppercase text-sm px-6 py-3 rounded-sm transition-colors shadow-[0_0_30px_rgba(255,59,26,0.35)]"
+            data-astro-prefetch
+          >
+            Start Reading
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        )}
+        <a
+          href="/books"
+          class="inline-flex items-center gap-2 border border-ink-300/40 hover:border-ink-100 text-ink-100 font-display tracking-wider uppercase text-sm px-6 py-3 rounded-sm transition-colors"
+          data-astro-prefetch
+        >
+          Browse Library
+        </a>
+      </div>
+    </div>
+    <!-- Scroll cue -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-ink-300 text-xs font-mono tracking-widest uppercase animate-flicker">
+      Scroll &darr;
+    </div>
+  </section>
+
+  <!-- Shelf -->
+  <section class="relative py-32 px-6">
+    <div class="max-w-6xl mx-auto">
+      <header class="text-center mb-20">
+        <p class="font-mono uppercase tracking-[0.3em] text-ember-400 text-xs">Now Reading</p>
+        <h2 class="font-display text-3xl sm:text-4xl mt-3 text-ink-50">
+          The Shelf
+        </h2>
+        <p class="mt-3 text-ink-300 max-w-xl mx-auto">
+          Hover a book to meet its characters.
+        </p>
+      </header>
+
+      <div class="flex flex-wrap items-start justify-center gap-x-16 gap-y-24">
+        {books.map(b => (
+          <AnimatedBookCard
+            book={{
+              slug: b.data.slug,
+              title: b.data.title,
+              series: b.data.series,
+              author: b.data.author,
+              tagline: b.data.tagline,
+              cover: b.data.cover,
+              characters: b.data.characters,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Manifesto strip -->
+  <section class="relative py-24 px-6 border-t border-ink-700/40">
+    <div class="max-w-3xl mx-auto text-center">
+      <blockquote class="font-display text-2xl sm:text-3xl italic text-ink-100 leading-snug">
+        &ldquo;The universe does not announce itself.&rdquo;
+      </blockquote>
+      <p class="mt-6 text-ink-300">
+        Every chapter is a scene. Every scene is felt. No subscriptions, no paywalls &mdash;
+        just stories rendered the way they were meant to be experienced.
+      </p>
+      <a
+        href="/about"
+        class="inline-block mt-8 text-ember-400 hover:text-ember-500 font-mono uppercase tracking-widest text-xs transition-colors"
+        data-astro-prefetch
+      >
+        What is this place? &rarr;
+      </a>
+    </div>
+  </section>
+</BaseLayout>

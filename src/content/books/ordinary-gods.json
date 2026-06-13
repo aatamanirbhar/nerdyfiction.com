@@ -1,0 +1,51 @@
+{
+  "slug": "ordinary-gods",
+  "title": "Ordinary Gods",
+  "series": "The Chosen Ones",
+  "seriesOrder": 1,
+  "author": "Nerdy Fiction",
+  "tagline": "The universe does not announce itself.",
+  "description": "On the last night of 2026, at exactly 10:00 PM Eastern, something changed at the level where reality itself is written. Eight billion people felt nothing. Twelve hesitated. This is the story of four of them.",
+  "publishedDate": "2026-06-13",
+  "cover": {
+    "gradientFrom": "#0a0805",
+    "gradientTo": "#3d321e",
+    "accent": "#ff3b1a",
+    "glyph": "OG"
+  },
+  "characters": [
+    {
+      "id": "robert",
+      "name": "Robert Calloway",
+      "tagline": "An actor who keeps showing up fifteen minutes early.",
+      "silhouetteColor": "#b09f7d"
+    },
+    {
+      "id": "alex",
+      "name": "Alex Whitfield",
+      "tagline": "A mechanic who watches the game with surgical focus.",
+      "silhouetteColor": "#5b9bd5"
+    },
+    {
+      "id": "third",
+      "name": "—",
+      "tagline": "Yet to be revealed.",
+      "silhouetteColor": "#7a5b9b"
+    },
+    {
+      "id": "fourth",
+      "name": "—",
+      "tagline": "Yet to be revealed.",
+      "silhouetteColor": "#9bb05b"
+    }
+  ],
+  "keywords": [
+    "Ordinary Gods",
+    "The Chosen Ones",
+    "visual novel",
+    "fantasy",
+    "supernatural fiction",
+    "web novel"
+  ],
+  "chapterCount": 1
+}

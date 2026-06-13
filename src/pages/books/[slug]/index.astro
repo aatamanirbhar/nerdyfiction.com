@@ -1,0 +1,173 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BookCover from '@components/BookCover.astro';
+import ChapterCard from '@components/ChapterCard.astro';
+import CharacterSilhouette from '@components/CharacterSilhouette.astro';
+import { bookJsonLd, breadcrumbJsonLd } from '@lib/seo';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  const chapters = await getCollection('chapters');
+  return books.map(book => ({
+    params: { slug: book.data.slug },
+    props: {
+      book,
+      chapters: chapters
+        .filter(c => c.data.book.id === book.id)
+        .sort((a, b) => a.data.number - b.data.number),
+    },
+  }));
+}
+
+const { book, chapters } = Astro.props;
+const b = book.data;
+
+const jsonLd = [
+  bookJsonLd({
+    slug: b.slug,
+    title: b.title,
+    series: b.series,
+    author: b.author,
+    description: b.description,
+    publishedDate: b.publishedDate,
+    keywords: b.keywords,
+  }),
+  breadcrumbJsonLd([
+    { name: 'Home', path: '/' },
+    { name: 'Books', path: '/books' },
+    { name: b.title, path: `/books/${b.slug}` },
+  ]),
+];
+---
+
+<BaseLayout
+  title={b.title}
+  description={b.description}
+  path={`/books/${b.slug}`}
+  type="book"
+  publishedTime={b.publishedDate.toISOString()}
+  author={b.author}
+  keywords={b.keywords}
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="relative px-6 pt-12 pb-20 overflow-hidden">
+    <!-- Ambient gradient backdrop tinted from the cover -->
+    <div
+      class="absolute inset-0 -z-10 opacity-60"
+      style={`background:
+        radial-gradient(ellipse at 30% 20%, ${b.cover.accent}22, transparent 60%),
+        radial-gradient(ellipse at 70% 80%, ${b.cover.gradientTo}55, transparent 65%);`}
+    ></div>
+
+    <div class="max-w-5xl mx-auto grid md:grid-cols-[auto,1fr] gap-12 items-center">
+      <div class="justify-self-center md:justify-self-end animate-fade-up">
+        <BookCover
+          title={b.title}
+          series={b.series}
+          author={b.author}
+          cover={b.cover}
+          size="lg"
+        />
+      </div>
+      <div class="animate-fade-up" style="animation-delay: 150ms;">
+        {b.series && (
+          <p class="font-mono uppercase tracking-[0.3em] text-ember-400 text-xs">
+            {b.series} {b.seriesOrder ? `· Book ${b.seriesOrder}` : ''}
+          </p>
+        )}
+        <h1 class="font-display text-4xl sm:text-5xl text-ink-50 mt-3 leading-tight">
+          {b.title}
+        </h1>
+        <p class="mt-2 text-ink-300 italic">by {b.author}</p>
+        <p
+          class="mt-6 font-display text-xl italic leading-snug"
+          style={`color: ${b.cover.accent};`}
+        >
+          &ldquo;{b.tagline}&rdquo;
+        </p>
+        <p class="mt-6 text-ink-100 leading-relaxed max-w-prose">
+          {b.description}
+        </p>
+
+        <div class="mt-8 flex items-center gap-4">
+          {chapters[0] && (
+            <a
+              href={`/books/${b.slug}/chapter-${chapters[0].data.number}`}
+              class="inline-flex items-center gap-2 bg-ember-500 hover:bg-ember-600 text-ink-50 font-display tracking-wider uppercase text-sm px-6 py-3 rounded-sm transition-colors shadow-[0_0_30px_rgba(255,59,26,0.35)]"
+              data-astro-prefetch
+            >
+              Start Chapter 1
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          )}
+          <a
+            href="/rss.xml"
+            class="inline-flex items-center gap-2 border border-ink-300/40 hover:border-ink-100 text-ink-100 font-mono tracking-wider uppercase text-xs px-4 py-3 rounded-sm transition-colors"
+          >
+            Follow via RSS
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Characters -->
+  <section class="relative px-6 py-16 border-t border-ink-700/40">
+    <div class="max-w-5xl mx-auto">
+      <header class="mb-10">
+        <p class="font-mono uppercase tracking-[0.3em] text-ember-400 text-xs">Cast</p>
+        <h2 class="font-display text-3xl text-ink-50 mt-2">The Chosen Ones</h2>
+      </header>
+
+      <ul class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {b.characters.map((c, i) => (
+          <li class="group flex flex-col items-center text-center rounded-md border border-ink-700/50 bg-ink-800/40 p-5 hover:border-ember-500/40 transition-colors">
+            <CharacterSilhouette
+              id={`${b.slug}-${c.id}-card`}
+              pose={(['idle','tense','reaching','rising'] as const)[i % 4]}
+              color={c.silhouetteColor}
+              size="sm"
+            />
+            <p class="font-display text-ink-50 mt-3">{c.name}</p>
+            <p class="text-xs text-ink-300 italic mt-1 leading-snug">{c.tagline}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Chapters -->
+  <section class="relative px-6 py-16 border-t border-ink-700/40">
+    <div class="max-w-3xl mx-auto">
+      <header class="mb-8 flex items-end justify-between gap-4">
+        <div>
+          <p class="font-mono uppercase tracking-[0.3em] text-ember-400 text-xs">Chapters</p>
+          <h2 class="font-display text-3xl text-ink-50 mt-2">
+            {chapters.length} of {b.chapterCount} published
+          </h2>
+        </div>
+      </header>
+
+      {chapters.length === 0 ? (
+        <p class="text-ink-300 italic">No chapters published yet. Check back soon.</p>
+      ) : (
+        <ol class="space-y-5">
+          {chapters.map(c => (
+            <li>
+              <ChapterCard
+                bookSlug={b.slug}
+                number={c.data.number}
+                title={c.data.title}
+                summary={c.data.summary}
+                estimatedMinutes={c.data.estimatedMinutes}
+                publishedDate={c.data.publishedDate}
+              />
+            </li>
+          ))}
+        </ol>
+      )}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,66 @@
+---
+/**
+ * BookCover — a code-rendered book cover used wherever a book appears.
+ * Style: thin spine, deep gradient, accent glyph in foil.
+ * Sized via a `size` prop ("sm" | "md" | "lg") or container's CSS.
+ */
+interface Props {
+  title: string;
+  series?: string;
+  author: string;
+  cover: {
+    gradientFrom: string;
+    gradientTo: string;
+    accent: string;
+    glyph?: string;
+  };
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const { title, series, author, cover, size = 'md', class: className = '' } = Astro.props;
+
+const sizes: Record<NonNullable<Props['size']>, string> = {
+  sm: 'w-32 h-48 text-[10px]',
+  md: 'w-52 h-80 text-xs',
+  lg: 'w-72 h-[28rem] text-sm',
+};
+---
+
+<div
+  class={`relative ${sizes[size]} rounded-r-md shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] overflow-hidden ${className}`}
+  style={`background: linear-gradient(135deg, ${cover.gradientFrom} 0%, ${cover.gradientTo} 100%);`}
+>
+  <!-- Spine -->
+  <div
+    class="absolute left-0 top-0 bottom-0 w-3"
+    style={`background: linear-gradient(180deg, ${cover.gradientTo} 0%, ${cover.gradientFrom} 100%); box-shadow: inset -1px 0 0 rgba(0,0,0,0.4);`}
+  ></div>
+  <!-- Glow border -->
+  <div class="absolute inset-0 border border-ink-100/10 rounded-r-md pointer-events-none"></div>
+  <!-- Edge highlight -->
+  <div class="absolute inset-y-0 right-0 w-px bg-gradient-to-b from-transparent via-ink-100/30 to-transparent"></div>
+
+  <div class="relative h-full px-6 py-8 flex flex-col justify-between text-ink-100">
+    <div>
+      {series && (
+        <p class="font-mono uppercase tracking-[0.25em] opacity-60">{series}</p>
+      )}
+      <h3 class="font-display tracking-wide mt-2 leading-tight text-[1.5em]" style={`color:${cover.accent};`}>
+        {title}
+      </h3>
+    </div>
+
+    <div class="flex items-end justify-between">
+      <p class="italic opacity-75">{author}</p>
+      {cover.glyph && (
+        <span
+          class="font-display font-bold text-[2em] leading-none"
+          style={`color:${cover.accent}; text-shadow: 0 0 12px ${cover.accent}55;`}
+        >
+          {cover.glyph}
+        </span>
+      )}
+    </div>
+  </div>
+</div>

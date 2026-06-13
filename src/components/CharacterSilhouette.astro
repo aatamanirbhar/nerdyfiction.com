@@ -1,0 +1,63 @@
+---
+/**
+ * CharacterSilhouette — a single SVG silhouette of a character.
+ *
+ * Generic abstract shape that supports `pose` variants. Designed to be
+ * swappable later: the silhouette draws are purely SVG path data with
+ * a single fill color that the scene reader pipes in from book data.
+ */
+interface Props {
+  id: string;
+  pose?: 'idle' | 'tense' | 'reaching' | 'reeling' | 'seated' | 'rising';
+  color?: string;
+  /** small / medium / large heights — md = 60% of stage */
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const { pose = 'idle', color = '#b09f7d', size = 'md', class: className = '', id } = Astro.props;
+
+const sizes = { sm: 'h-40', md: 'h-72', lg: 'h-[28rem]' };
+
+// Each pose is a stylized humanoid silhouette in a 100x200 viewBox.
+// All paths are smooth and abstract — not photographic.
+const poses: Record<NonNullable<Props['pose']>, string> = {
+  idle:
+    'M50 8c8 0 14 6 14 14s-6 14-14 14-14-6-14-14 6-14 14-14zM30 40h40c4 0 8 4 8 8v60c0 4-4 6-8 6h-4l-2 80h-12l-2-58h-4l-2 58h-12l-2-80h-4c-4 0-8-2-8-6V48c0-4 4-8 8-8z',
+  tense:
+    'M48 6c8 0 14 6 14 14s-6 14-14 14-14-6-14-14 6-14 14-14zM26 42h44c4 0 8 4 8 8v58c0 6-6 8-12 8l-4 78h-12l-2-60-6 2-2 58h-12l-2-78c-6 0-12-2-12-8V50c0-4 4-8 10-8z',
+  reaching:
+    'M50 6c8 0 14 6 14 14s-6 14-14 14-14-6-14-14 6-14 14-14zM34 40h32c4 0 8 4 8 8 14-2 22 6 24 14 2 6-4 10-10 8-8-2-14-6-22-8v54c0 4-2 8-8 8l-2 78h-12l-2-60-4 2-2 58h-12l-2-78c-4 0-6-4-6-8V48c0-4 4-8 8-8z',
+  reeling:
+    'M52 8c8 0 14 6 14 14s-6 14-14 14-14-6-14-14 6-14 14-14zM30 44h40c6 0 10 4 10 10v50c0 6-4 8-10 10l-6 2v74h-12l-4-58-4 2-4 56h-12l-2-76c-6 0-10-4-10-10V54c0-6 4-10 10-10z',
+  seated:
+    'M50 8c8 0 14 6 14 14s-6 14-14 14-14-6-14-14 6-14 14-14zM30 40h40c4 0 8 4 8 8v50c0 4-2 8-6 10l4 60c2 6-2 10-8 10h-10v-46h-12v46H40c-6 0-10-4-8-10l4-60c-4-2-6-6-6-10V48c0-4 4-8 8-8z',
+  rising:
+    'M50 4c8 0 14 6 14 14s-6 14-14 14-14-6-14-14 6-14 14-14zM30 36h40c4 0 8 4 8 8v62c0 6-4 8-8 8l-4 84h-12l-4-58h-2l-4 58h-12l-4-84c-4 0-8-2-8-8V44c0-4 4-8 8-8z',
+};
+
+const d = poses[pose];
+---
+
+<svg
+  class={`${sizes[size]} w-auto drop-shadow-[0_8px_24px_rgba(0,0,0,0.6)] ${className}`}
+  viewBox="0 0 100 200"
+  preserveAspectRatio="xMidYEnd meet"
+  data-character={id}
+  aria-hidden="true"
+>
+  <defs>
+    <linearGradient id={`grad-${id}-${pose}`} x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color={color} stop-opacity="0.95" />
+      <stop offset="100%" stop-color={color} stop-opacity="0.55" />
+    </linearGradient>
+    <filter id={`glow-${id}`} x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <path d={d} fill={`url(#grad-${id}-${pose})`} filter={`url(#glow-${id})`} />
+</svg>

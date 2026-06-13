@@ -1,0 +1,719 @@
+{
+  "book": "ordinary-gods",
+  "number": 1,
+  "title": "Ordinary Gods",
+  "summary": "The universe does not announce itself. On the last night of 2026, at exactly 10:00 PM Eastern, something changes. Twelve people hesitate. Robert Calloway is one of them — and an oversized art book in a Studio City waiting room is about to refuse to fall.",
+  "publishedDate": "2026-06-13",
+  "estimatedMinutes": 14,
+  "keywords": [
+    "Ordinary Gods",
+    "Chapter 1",
+    "Robert Calloway",
+    "visual novel",
+    "supernatural fiction"
+  ],
+  "scenes": [
+    {
+      "id": "prologue-01",
+      "type": "narration",
+      "text": "The universe does not announce itself.",
+      "backdrop": "cosmos",
+      "characters": [],
+      "fx": "none",
+      "transition": "slow-fade",
+      "audioCue": "low drone"
+    },
+    {
+      "id": "prologue-02",
+      "type": "narration",
+      "text": "For all its scale — the unfathomable distances, the slow burn of stars older than language, the quiet machinery of galaxies spinning in the dark — the universe tends toward silence. It does not knock. It does not warn.",
+      "backdrop": "cosmos",
+      "characters": [],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "prologue-03",
+      "type": "narration",
+      "text": "When something changes at the level where reality itself is written, it does not arrive with thunder.",
+      "backdrop": "cosmos",
+      "characters": [],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "prologue-04",
+      "type": "narration",
+      "text": "It arrives the way a single drop of ink finds a glass of water. Unseen, for one half of one second. And then, everywhere.",
+      "backdrop": "cosmos",
+      "characters": [],
+      "fx": "none",
+      "transition": "slow-fade"
+    },
+    {
+      "id": "prologue-break-01",
+      "type": "transition",
+      "text": "· · ·",
+      "backdrop": "void",
+      "characters": [],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "prologue-05",
+      "type": "narration",
+      "text": "On the last night of 2026, at precisely 10:00 PM Eastern Standard Time, something changed.",
+      "backdrop": "cosmos",
+      "characters": [],
+      "fx": "none",
+      "transition": "slow-fade",
+      "audioCue": "single struck bell"
+    },
+    {
+      "id": "prologue-06",
+      "type": "narration",
+      "text": "It happened everywhere at once and nowhere in particular. No satellite recorded it. No instrument on Earth, however sensitive, so much as twitched.",
+      "backdrop": "cosmos",
+      "characters": [],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "prologue-07",
+      "type": "narration",
+      "text": "If you had asked any of the eight billion people on the planet that night whether anything unusual had occurred, every single one of them — every last one except twelve — would have said no.",
+      "backdrop": "cosmos",
+      "characters": [],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "prologue-08",
+      "type": "narration",
+      "text": "Those twelve would have hesitated.",
+      "backdrop": "cosmos",
+      "characters": [],
+      "fx": "none",
+      "transition": "slow-fade"
+    },
+    {
+      "id": "prologue-09",
+      "type": "narration",
+      "text": "Just for a second.",
+      "backdrop": "cosmos",
+      "characters": [],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "prologue-10",
+      "type": "narration",
+      "text": "And then they would have said no, too.",
+      "backdrop": "cosmos",
+      "characters": [],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "prologue-break-02",
+      "type": "transition",
+      "text": "· · ·",
+      "backdrop": "void",
+      "characters": [],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "prologue-11",
+      "type": "narration",
+      "text": "This is the story of four of them.",
+      "backdrop": "cosmos",
+      "characters": [],
+      "fx": "none",
+      "transition": "slow-fade"
+    },
+    {
+      "id": "prologue-12",
+      "type": "narration",
+      "text": "It begins, as most disappointing things do, in a waiting room.",
+      "backdrop": "cosmos",
+      "characters": [],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "prologue-break-03",
+      "type": "transition",
+      "text": "· · ·",
+      "backdrop": "void",
+      "characters": [],
+      "fx": "none",
+      "transition": "fade"
+    },
+
+    {
+      "id": "robert-01",
+      "type": "narration",
+      "text": "The waiting room of Marcus Heinz’s Studio City office had the kind of furniture that was expensive specifically so that you would notice it was expensive.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "iris",
+      "marker": "I.",
+      "audioCue": "central air, distant traffic"
+    },
+    {
+      "id": "robert-02",
+      "type": "narration",
+      "text": "A leather couch the color of dried blood. A glass coffee table with absolutely nothing on it except a single, oversized art book about the films of a director Robert Calloway had never heard of, positioned at what felt like a deliberate forty-five-degree angle.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "robert-03",
+      "type": "narration",
+      "text": "On the wall, in a frame that had probably cost more than Robert’s rent, hung a poster for a movie that had grossed four hundred million dollars worldwide.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "robert-04",
+      "type": "narration",
+      "text": "Robert had researched it once, out of curiosity and self-loathing in roughly equal measure. The lead actor in that poster had been twenty-six when it was shot.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "robert-05",
+      "type": "thought",
+      "speaker": "Robert",
+      "text": "Robert was twenty-six now.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
+      ],
+      "fx": "none",
+      "transition": "slow-fade"
+    },
+    {
+      "id": "robert-06",
+      "type": "narration",
+      "text": "He sat very straight on the blood-leather couch, both feet flat on the floor, hands folded in his lap like he was at a job interview — which, in the only way that mattered to him, he was.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "robert-07",
+      "type": "narration",
+      "text": "He had been the first to arrive. He was always the first to arrive. Fifteen minutes early to every audition, every meeting, every callback, as if punctuality were a substitute for everything else he didn’t have.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "robert-08",
+      "type": "narration",
+      "text": "A reel that nobody watched past the ten-second mark. A reputation. A name that meant something to somebody.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "robert-09",
+      "type": "narration",
+      "text": "He’d been sitting in this exact spot for twenty-five minutes. The meeting had been for seven.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "slow-fade"
+    },
+    {
+      "id": "robert-10",
+      "type": "narration",
+      "text": "This was a callback — technically. He had auditioned for a supporting role in an indie feature eight days ago, a small but meaty part, the kind of role that could actually do something for a career if the right person saw it.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "robert-11",
+      "type": "narration",
+      "text": "He had worked on it for a week. He’d recorded himself doing the scene eleven times and watched all eleven back with the sound of his own voice making his skin crawl, the way it always did, and he’d kept going anyway because the twelfth time felt closer to right.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "robert-12",
+      "type": "narration",
+      "text": "He had not heard the word “callback” used anywhere in the three voicemails and two emails that had led him here tonight. What he had heard, in increasingly vague language, was that Marcus wanted to “touch base” and “loop him in on some thoughts” before the holidays.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "robert-13",
+      "type": "thought",
+      "speaker": "Robert",
+      "text": "Robert had told himself this was a good sign. People didn’t fly you in — well, he’d driven, but the principle held — to deliver bad news in person.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "robert-14",
+      "type": "thought",
+      "speaker": "Robert",
+      "text": "Bad news was an email. Bad news was nothing at all, just silence stretching out until you stopped checking your phone every four minutes. In person meant they liked something. In person meant there was a conversation to be had.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "robert-15",
+      "type": "narration",
+      "text": "He checked his phone. 7:26 PM. New Year’s Eve. Outside the tinted office windows, Los Angeles was already gearing up for the kind of night where everyone pretended the changing of a number meant something had actually changed.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "slow-fade"
+    },
+    {
+      "id": "robert-16",
+      "type": "narration",
+      "text": "The assistant — a young woman who’d introduced herself as Priya and then immediately stopped making eye contact with him, which Robert had learned over the years to read as a bad sign — had told him Marcus was running behind.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "robert-17",
+      "type": "narration",
+      "text": "That had been twenty minutes ago. Robert had nodded, said of course, no problem, take your time, and then sat back down to wait in a silence so complete he could hear the office’s central air system click on and off.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "robert-18",
+      "type": "narration",
+      "text": "He stood up. Sitting still for this long made his skin itch, made his thoughts loop back on themselves in ways he didn’t like. He walked to the window.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "rising", "position": "center", "intensity": 0.95 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "robert-19",
+      "type": "narration",
+      "text": "Traffic on Ventura was already thickening, a river of red and white lights crawling toward wherever people went to feel like the year ending mattered.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "idle", "position": "right", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "robert-20",
+      "type": "narration",
+      "text": "He walked back. He sat down again. He picked up the art book, mostly for something to do with his hands, and let it fall open to a random page —",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "robert-21",
+      "type": "narration",
+      "text": "— a black-and-white photograph of a director on set, surrounded by people who were listening to him, actually listening, the way Robert imagined people might listen to him someday, if—",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "moment-slip",
+      "type": "moment",
+      "text": "The book slipped.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "reaching", "position": "center", "intensity": 1.0 }
+      ],
+      "fx": "time-pinch",
+      "transition": "slow-fade",
+      "audioCue": "the room narrows"
+    },
+    {
+      "id": "moment-slip-02",
+      "type": "narration",
+      "text": "It wasn’t dramatic. It wasn’t even really a slip — more like his hand simply forgot, for a fraction of a second, that it was holding something.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "reaching", "position": "center", "intensity": 1.0 }
+      ],
+      "fx": "time-pinch",
+      "transition": "fade"
+    },
+    {
+      "id": "moment-slip-03",
+      "type": "narration",
+      "text": "The book tipped off his palm and began to fall toward the glass table, toward that single empty spot where it had been so carefully, deliberately placed, and Robert’s whole body flinched in anticipation of the crash, the cracked glass, the look on Priya’s face, the end of whatever tiny chance he had at this meeting going well—",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "reeling", "position": "center", "intensity": 1.0 }
+      ],
+      "fx": "time-pinch",
+      "transition": "fade"
+    },
+    {
+      "id": "red-streak",
+      "type": "moment",
+      "text": "A streak of red light, jagged, impossibly fast — gone before he could even call it a memory.",
+      "backdrop": "flash-red",
+      "characters": [],
+      "fx": "red-streak",
+      "transition": "flash",
+      "audioCue": "a sound that isn’t a sound"
+    },
+    {
+      "id": "moment-stop",
+      "type": "moment",
+      "text": "The book stopped.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "reeling", "position": "center", "intensity": 1.0 }
+      ],
+      "fx": "book-float",
+      "transition": "iris",
+      "audioCue": "silence, perfect"
+    },
+    {
+      "id": "moment-stop-02",
+      "type": "narration",
+      "text": "Six inches above the table. Just — stopped. Hanging in the air at the exact angle it had been falling, as if time itself had reached out and pinched it between two fingers.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "reeling", "position": "center", "intensity": 1.0 }
+      ],
+      "fx": "book-float",
+      "transition": "fade"
+    },
+    {
+      "id": "moment-stop-03",
+      "type": "narration",
+      "text": "Robert stared at it.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "tense", "position": "center", "intensity": 1.0 }
+      ],
+      "fx": "book-float",
+      "transition": "fade"
+    },
+    {
+      "id": "moment-stop-04",
+      "type": "narration",
+      "text": "He became aware, in the back of his mind, of something else — something that had happened a half-second before the book left his hand, something he’d been too startled to register until now. A flash. Not in the room. Not in his eyes, exactly. Somewhere behind them, or through them.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "tense", "position": "center", "intensity": 1.0 }
+      ],
+      "fx": "tilt-world",
+      "transition": "slow-fade"
+    },
+    {
+      "id": "moment-stop-05",
+      "type": "thought",
+      "speaker": "Robert",
+      "text": "Something in him had — shifted. Like a key turning in a lock he hadn’t known was there.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "tense", "position": "center", "intensity": 1.0 }
+      ],
+      "fx": "tilt-world",
+      "transition": "fade"
+    },
+    {
+      "id": "moment-stop-06",
+      "type": "narration",
+      "text": "The book hung in the air.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "reaching", "position": "center", "intensity": 1.0 }
+      ],
+      "fx": "book-float",
+      "transition": "slow-fade"
+    },
+    {
+      "id": "moment-stop-07",
+      "type": "narration",
+      "text": "Robert reached out, very slowly, and closed his hand around it. The moment his fingers touched the cover, it dropped the remaining six inches into his palm with completely ordinary weight, as if it had never stopped at all.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "reaching", "position": "center", "intensity": 1.0 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "moment-stop-08",
+      "type": "narration",
+      "text": "He placed it back on the table. Exactly where it had been. At the forty-five-degree angle.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "moment-stop-09",
+      "type": "narration",
+      "text": "His hand was shaking.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
+      ],
+      "fx": "none",
+      "transition": "slow-fade"
+    },
+    {
+      "id": "aftermath-01",
+      "type": "thought",
+      "speaker": "Robert",
+      "text": "Okay. Okay, that. That happened. That was a thing that happened.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "aftermath-02",
+      "type": "narration",
+      "text": "He sat back down on the couch. His heart was going hard enough that he could feel it in his throat, in his fingertips, a high thin buzzing under his skin like he’d had too much coffee, except he hadn’t had any coffee, he’d been too nervous to drink anything before the meeting in case he needed to—",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.95 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "aftermath-03",
+      "type": "thought",
+      "speaker": "Robert",
+      "text": "Focus.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "aftermath-04",
+      "type": "narration",
+      "text": "He looked at the table. The book sat there, inert, exactly as before. He looked at his hand. Just a hand. Slightly damp now, but just a hand.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "aftermath-05",
+      "type": "thought",
+      "speaker": "Robert",
+      "text": "Did that happen?",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
+      ],
+      "fx": "none",
+      "transition": "slow-fade"
+    },
+    {
+      "id": "aftermath-06",
+      "type": "narration",
+      "text": "He thought about asking Priya if she’d seen it. He immediately understood, with the kind of clarity that arrives uninvited, exactly how that conversation would go, and exactly how it would end his career before it had even properly started.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "aftermath-07",
+      "type": "thought",
+      "speaker": "Robert",
+      "text": "Hi, sorry, quick question — did you happen to see that book just float for a second? No? Totally my imagination? Great, cool, awesome, anyway about that role—",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "marcus-enters-01",
+      "type": "narration",
+      "text": "The door to the inner office opened. Marcus Heinz emerged, already mid-sentence into his phone, raising one finger toward Robert in the universal gesture for one more minute that Robert had learned, over six years in this city, almost always meant ten to fifteen.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "left", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "iris",
+      "audioCue": "door, distant phone voice"
+    },
+    {
+      "id": "marcus-enters-02",
+      "type": "narration",
+      "text": "Robert smiled and nodded and sat very still, and underneath the smile his mind kept circling back to the book, hanging in the air, six inches above the glass, for no reason that the world as he understood it could explain.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "tense", "position": "left", "intensity": 0.95 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "marcus-enters-03",
+      "type": "thought",
+      "speaker": "Robert",
+      "text": "It was nerves. A trick of the eye. The kind of thing your brain does when you’ve been awake too long and wanting something too badly.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "tense", "position": "left", "intensity": 0.95 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "marcus-enters-04",
+      "type": "narration",
+      "text": "He believed this for almost six full minutes — right up until the meeting started, and Marcus Heinz told him, with the practiced gentleness of a man who did this several times a week,",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "left", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "marcus-dialog-01",
+      "type": "dialog",
+      "speaker": "Marcus Heinz",
+      "text": "We’ve decided to go in a different direction for the role. But you were really in the room with your audition — we’ll absolutely keep you in mind for future projects. Have a wonderful New Year.",
+      "backdrop": "studio-city",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "left", "intensity": 0.85 }
+      ],
+      "fx": "none",
+      "transition": "slow-fade",
+      "audioCue": "office hush"
+    },
+    {
+      "id": "exit-01",
+      "type": "narration",
+      "text": "Robert thanked him. Shook his hand. Walked out past Priya, who still didn’t make eye contact, and out into the parking structure, where he sat in his car for a long time before starting the engine.",
+      "backdrop": "sunset-window",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.95 }
+      ],
+      "fx": "none",
+      "transition": "slow-fade",
+      "audioCue": "distant freeway"
+    },
+    {
+      "id": "exit-02",
+      "type": "narration",
+      "text": "He didn’t think about the book again that night.",
+      "backdrop": "sunset-window",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "fade"
+    },
+    {
+      "id": "exit-03",
+      "type": "narration",
+      "text": "He would think about it again very soon.",
+      "backdrop": "sunset-window",
+      "characters": [
+        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
+      ],
+      "fx": "none",
+      "transition": "slow-fade"
+    },
+    {
+      "id": "outro-break",
+      "type": "transition",
+      "text": "· · ·",
+      "backdrop": "void",
+      "characters": [],
+      "fx": "none",
+      "transition": "fade"
+    }
+  ]
+}

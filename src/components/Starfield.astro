@@ -1,0 +1,56 @@
+---
+/**
+ * Starfield — a slow-drifting cosmic backdrop used by the homepage hero
+ * and the "cosmos" scene backdrop. Pure CSS + a few inline gradient layers.
+ * No JS, no images.
+ */
+interface Props {
+  /** Density of background stars; smaller = sparser */
+  density?: number;
+  /** Hue tint (CSS color) for the deep-space wash */
+  tint?: string;
+  class?: string;
+}
+
+const { density = 60, tint = '#0a0805', class: className = '' } = Astro.props;
+
+// Generate deterministic-feeling star positions
+const stars = Array.from({ length: density }, (_, i) => {
+  const seed = (i * 9301 + 49297) % 233280;
+  const r = (seed / 233280);
+  return {
+    left: ((r * 100) % 100).toFixed(2),
+    top:  (((r * 17 + i * 7) % 100)).toFixed(2),
+    size: 0.4 + (((i * 13) % 9) / 10),
+    delay: ((i % 11) * 0.7).toFixed(2),
+    duration: 3 + (i % 5),
+    bright: i % 9 === 0,
+  };
+});
+---
+
+<div class={`absolute inset-0 overflow-hidden pointer-events-none ${className}`} aria-hidden="true">
+  <div
+    class="absolute inset-0"
+    style={`background:
+      radial-gradient(ellipse at 20% 10%, rgba(255,107,74,0.10), transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(91,155,213,0.10), transparent 55%),
+      radial-gradient(ellipse at 50% 50%, ${tint}, ${tint});`}
+  ></div>
+  {stars.map(s => (
+    <span
+      class={`absolute rounded-full ${s.bright ? 'bg-ember-400' : 'bg-ink-100'} animate-flicker`}
+      style={`
+        left:${s.left}%;
+        top:${s.top}%;
+        width:${s.size}px;
+        height:${s.size}px;
+        opacity:${s.bright ? 0.9 : 0.55};
+        animation-delay:${s.delay}s;
+        animation-duration:${s.duration}s;
+        box-shadow:0 0 ${s.bright ? 6 : 2}px currentColor;
+      `}
+    />
+  ))}
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink-950"></div>
+</div>

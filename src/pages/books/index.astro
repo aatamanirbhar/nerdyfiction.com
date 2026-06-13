@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BookCover from '@components/BookCover.astro';
+import { bookHref } from '@lib/nav';
+import { breadcrumbJsonLd } from '@lib/seo';
+
+const books = (await getCollection('books')).sort(
+  (a, b) => +b.data.publishedDate - +a.data.publishedDate
+);
+
+const jsonLd = [
+  breadcrumbJsonLd([
+    { name: 'Home', path: '/' },
+    { name: 'Books', path: '/books' },
+  ]),
+];
+---
+
+<BaseLayout
+  title="All Books"
+  description="The full library of original visual-novel fiction on Nerdy Fiction."
+  path="/books"
+  type="website"
+  jsonLd={jsonLd}
+>
+  <section class="relative max-w-6xl mx-auto px-6 py-20">
+    <header class="mb-16 text-center">
+      <p class="font-mono uppercase tracking-[0.3em] text-ember-400 text-xs">Library</p>
+      <h1 class="font-display text-4xl sm:text-5xl mt-3 text-ink-50">All Books</h1>
+      <p class="mt-3 text-ink-300">{books.length} title{books.length === 1 ? '' : 's'} &middot; more on the way.</p>
+    </header>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-8 gap-y-14 justify-items-center">
+      {books.map(b => (
+        <a
+          href={bookHref(b.data.slug)}
+          class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-ember-500 rounded-md"
+          data-astro-prefetch
+          aria-label={`Open ${b.data.title}`}
+        >
+          <div class="transition-transform duration-500 group-hover:-translate-y-2 group-hover:rotate-[-2deg]">
+            <BookCover
+              title={b.data.title}
+              series={b.data.series}
+              author={b.data.author}
+              cover={b.data.cover}
+              size="md"
+            />
+          </div>
+          <div class="mt-4 text-center">
+            <p class="font-display text-ink-50 leading-tight">{b.data.title}</p>
+            {b.data.series && (
+              <p class="text-xs font-mono uppercase tracking-widest text-ink-400 mt-1">
+                {b.data.series}
+              </p>
+            )}
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

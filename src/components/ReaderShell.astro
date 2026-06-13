@@ -1,0 +1,381 @@
+---
+/**
+ * ReaderShell — the full-screen visual-novel runner.
+ *
+ * - SceneStage is rendered once; client script swaps active backdrop / character /
+ *   pose / position / fx based on the current scene index.
+ * - Typewriter prints the current scene's text. Space / ArrowRight / click advances.
+ *   ArrowLeft goes back. Esc returns to the book page.
+ * - Progress is persisted in localStorage keyed by chapter id.
+ */
+import SceneStage from './SceneStage.astro';
+
+interface Props {
+  chapterId: string;
+  bookSlug: string;
+  bookTitle: string;
+  chapterNumber: number;
+  chapterTitle: string;
+  scenes: any[]; // Scene[] from src/content/config.ts — kept loose to avoid astro:content import here
+  characters: Array<{ id: string; name: string; silhouetteColor: string }>;
+}
+
+const { chapterId, bookSlug, bookTitle, chapterNumber, chapterTitle, scenes, characters } = Astro.props;
+const scenesJson = JSON.stringify(scenes);
+const charactersJson = JSON.stringify(characters);
+---
+
+<div
+  class="reader-shell fixed inset-0 bg-ink-950 text-ink-50 overflow-hidden"
+  data-reader
+  data-chapter-id={chapterId}
+  data-book-slug={bookSlug}
+  data-scenes={scenesJson}
+  data-characters={charactersJson}
+>
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 z-30 flex items-center justify-between px-6 py-3 pointer-events-none">
+    <a
+      href={`/books/${bookSlug}`}
+      class="pointer-events-auto inline-flex items-center gap-2 text-ink-200 hover:text-ink-50 font-mono uppercase tracking-widest text-[10px] backdrop-blur-md bg-ink-950/40 px-3 py-1.5 rounded-sm border border-ink-700/40 transition-colors"
+      data-astro-prefetch
+    >
+      &larr; Exit
+    </a>
+    <div class="pointer-events-none text-center">
+      <p class="font-mono uppercase tracking-[0.3em] text-[10px] text-ink-300">{bookTitle}</p>
+      <p class="font-display text-sm text-ink-50">Chapter {chapterNumber} &middot; {chapterTitle}</p>
+    </div>
+    <div class="pointer-events-auto flex items-center gap-2 backdrop-blur-md bg-ink-950/40 px-3 py-1.5 rounded-sm border border-ink-700/40">
+      <span class="font-mono uppercase tracking-widest text-[10px] text-ink-300" data-progress-label>1 / {scenes.length}</span>
+    </div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="absolute top-0 inset-x-0 z-30 h-0.5 bg-ink-700/40">
+    <div class="h-full bg-ember-500 transition-all duration-500" style="width: 0%;" data-progress-bar></div>
+  </div>
+
+  <!-- Visual stage -->
+  <SceneStage bookSlug={bookSlug} characters={characters} />
+
+  <!-- Marker chip (section breaks like "I.") -->
+  <div
+    class="absolute top-1/4 left-1/2 -translate-x-1/2 z-20 font-display text-7xl text-ember-500/80 opacity-0 transition-opacity duration-700 pointer-events-none"
+    data-marker
+  ></div>
+
+  <!-- Audio cue chip -->
+  <div
+    class="absolute bottom-32 left-6 z-20 backdrop-blur-md bg-ink-950/50 border border-ink-700/40 px-3 py-1 rounded-sm font-mono uppercase tracking-widest text-[10px] text-ink-200 opacity-0 transition-opacity duration-500"
+    data-audio-cue
+  >
+    <span aria-hidden="true">&#9836;</span>
+    <span data-audio-cue-text></span>
+  </div>
+
+  <!-- Text panel -->
+  <div class="absolute inset-x-0 bottom-0 z-20 px-6 pb-10 pt-16 pointer-events-none">
+    <div class="max-w-3xl mx-auto pointer-events-auto">
+      <p
+        class="font-mono uppercase tracking-[0.3em] text-[10px] text-ember-400 mb-2 min-h-[1em]"
+        data-speaker
+      ></p>
+      <p
+        class="font-serif text-2xl sm:text-3xl leading-relaxed text-ink-50 min-h-[8rem]"
+        data-text
+        data-type="narration"
+      ></p>
+
+      <div class="mt-6 flex items-center justify-between text-sm text-ink-300">
+        <div class="flex items-center gap-3 font-mono uppercase tracking-widest text-[10px]">
+          <kbd class="px-1.5 py-0.5 bg-ink-800 border border-ink-700 rounded">&larr;</kbd>
+          <span>back</span>
+          <span class="text-ink-600">&middot;</span>
+          <kbd class="px-1.5 py-0.5 bg-ink-800 border border-ink-700 rounded">Space</kbd>
+          <span>continue</span>
+        </div>
+        <button
+          type="button"
+          class="group inline-flex items-center gap-2 bg-ember-500 hover:bg-ember-600 text-ink-50 font-display tracking-wider uppercase text-xs px-5 py-2.5 rounded-sm transition-colors"
+          data-next-button
+        >
+          <span data-next-label>Continue</span>
+          <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">&rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  [data-text][data-type="thought"]   { font-style: italic; color: #cfc4ac; }
+  [data-text][data-type="dialog"]    { color: #f5f3ee; }
+  [data-text][data-type="narration"] { color: #e8e2d4; }
+  [data-text][data-type="moment"],
+  [data-text][data-type="transition"] {
+    text-align: center; font-style: italic; letter-spacing: 0.08em; color: #b09f7d;
+  }
+
+  /* tilt-world FX rotates the stage subtly */
+  .reader-shell[data-fx-active="tilt-world"] [data-scene-stage] {
+    transform: perspective(900px) rotateX(2deg) rotateZ(-1deg) scale(1.03);
+    transition: transform 1.2s ease-out;
+  }
+  /* time-pinch FX desaturates */
+  .reader-shell[data-fx-active="time-pinch"] [data-scene-stage] {
+    filter: saturate(0.6) contrast(1.1);
+    transition: filter 0.8s ease-out;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  type Scene = {
+    id: string;
+    type: 'narration' | 'thought' | 'dialog' | 'moment' | 'transition';
+    text?: string;
+    speaker?: string;
+    backdrop: string;
+    characters: Array<{ id: string; pose: string; position: string; intensity: number }>;
+    fx: string;
+    transition: string;
+    audioCue?: string;
+    marker?: string;
+  };
+
+  function setup(reader: HTMLElement) {
+    const scenes: Scene[] = JSON.parse(reader.dataset.scenes || '[]');
+    if (scenes.length === 0) return;
+    const chapterId = reader.dataset.chapterId || 'unknown';
+    const storageKey = `nf:read:${chapterId}`;
+
+    const stage         = reader.querySelector<HTMLElement>('[data-scene-stage]')!;
+    const textEl        = reader.querySelector<HTMLElement>('[data-text]')!;
+    const speakerEl     = reader.querySelector<HTMLElement>('[data-speaker]')!;
+    const nextBtn       = reader.querySelector<HTMLButtonElement>('[data-next-button]')!;
+    const nextLabel     = reader.querySelector<HTMLElement>('[data-next-label]')!;
+    const progressBar   = reader.querySelector<HTMLElement>('[data-progress-bar]')!;
+    const progressLabel = reader.querySelector<HTMLElement>('[data-progress-label]')!;
+    const markerEl      = reader.querySelector<HTMLElement>('[data-marker]')!;
+    const audioCue      = reader.querySelector<HTMLElement>('[data-audio-cue]')!;
+    const audioCueText  = reader.querySelector<HTMLElement>('[data-audio-cue-text]')!;
+
+    let index = 0;
+    try {
+      const stored = parseInt(localStorage.getItem(storageKey) || '0', 10);
+      if (!Number.isNaN(stored) && stored >= 0 && stored < scenes.length) index = stored;
+    } catch { /* localStorage unavailable */ }
+
+    let typewriterTimer: ReturnType<typeof setTimeout> | null = null;
+    let typing = false;
+
+    function setBackdrop(name: string) {
+      stage.dataset.backdrop = name;
+      stage.querySelectorAll<HTMLElement>('[data-backdrop-layer]').forEach(el => {
+        el.dataset.active = el.dataset.backdropLayer === name ? 'true' : 'false';
+      });
+    }
+
+    function setCharacters(scene: Scene) {
+      // Hide all character layers, then activate the ones in this scene
+      stage.querySelectorAll<HTMLElement>('[data-character-layer]').forEach(layer => {
+        const id = layer.dataset.characterLayer!;
+        const charInScene = scene.characters.find(c => c.id === id);
+        layer.dataset.active = charInScene ? 'true' : 'false';
+        if (charInScene) {
+          const slot = layer.querySelector<HTMLElement>(`[data-character-slot="${id}"]`)!;
+          slot.dataset.position = charInScene.position;
+          slot.style.opacity = String(charInScene.intensity);
+          slot.querySelectorAll<HTMLElement>('[data-character-pose]').forEach(poseEl => {
+            poseEl.dataset.active = poseEl.dataset.characterPose === charInScene.pose ? 'true' : 'false';
+          });
+        }
+      });
+    }
+
+    function playFx(name: string) {
+      stage.dataset.fx = name;
+      reader.dataset.fxActive = name;
+      // Hide all overlays first
+      stage.querySelectorAll<HTMLElement>('[data-fx-layer]').forEach(el => {
+        gsap.set(el, { opacity: 0, clearProps: 'transform' });
+      });
+      const layer = stage.querySelector<HTMLElement>(`[data-fx-layer="${name}"]`);
+      switch (name) {
+        case 'red-streak': {
+          if (!layer) return;
+          const bar = layer.querySelector<HTMLElement>('[data-streak-bar]');
+          gsap.set(layer, { opacity: 1 });
+          if (bar) {
+            gsap.fromTo(bar,
+              { x: '-120%', skewX: -30, opacity: 0 },
+              { x: '120%', skewX: -30, opacity: 1, duration: 0.7, ease: 'power4.out',
+                onComplete: () => gsap.to(layer, { opacity: 0, duration: 0.3 }) }
+            );
+          }
+          break;
+        }
+        case 'flash': {
+          if (!layer) return;
+          gsap.fromTo(layer, { opacity: 0 }, { opacity: 1, duration: 0.08, yoyo: true, repeat: 1, ease: 'none' });
+          break;
+        }
+        case 'book-float': {
+          if (!layer) return;
+          gsap.set(layer, { opacity: 1 });
+          const book = layer.querySelector<HTMLElement>('[data-float-book]');
+          if (book) {
+            gsap.fromTo(book,
+              { y: 20, rotate: -10, scale: 0.9 },
+              { y: -10, rotate: -6, scale: 1, duration: 1.4, ease: 'power2.out',
+                onComplete: () => gsap.to(book, { y: 0, duration: 2.5, ease: 'sine.inOut', repeat: -1, yoyo: true }) }
+            );
+          }
+          break;
+        }
+        case 'time-pinch': {
+          if (!layer) return;
+          gsap.fromTo(layer, { opacity: 0 }, { opacity: 1, duration: 0.5 });
+          break;
+        }
+        case 'tilt-world': {
+          if (!layer) return;
+          gsap.fromTo(layer, { opacity: 0 }, { opacity: 0.6, duration: 0.6 });
+          break;
+        }
+        case 'none':
+        default:
+          break;
+      }
+    }
+
+    function applyTransitionIn(kind: string) {
+      // We mostly rely on CSS opacity transitions in SceneStage backdrops.
+      // Add a brief stage-level effect for cinematic kinds:
+      switch (kind) {
+        case 'flash':
+          gsap.fromTo(stage, { opacity: 0.2 }, { opacity: 1, duration: 0.3, ease: 'power2.out' });
+          break;
+        case 'iris':
+          gsap.fromTo(stage, { clipPath: 'circle(0% at 50% 50%)' }, { clipPath: 'circle(120% at 50% 50%)', duration: 0.9, ease: 'power3.out' });
+          break;
+        case 'slow-fade':
+          gsap.fromTo(stage, { opacity: 0 }, { opacity: 1, duration: 1.2, ease: 'power2.out' });
+          break;
+        case 'fade':
+          gsap.fromTo(stage, { opacity: 0.4 }, { opacity: 1, duration: 0.5, ease: 'power2.out' });
+          break;
+        case 'cut':
+        default:
+          gsap.set(stage, { opacity: 1, clipPath: 'none' });
+          break;
+      }
+    }
+
+    function typewrite(text: string, type: string) {
+      if (typewriterTimer) { clearTimeout(typewriterTimer); typewriterTimer = null; }
+      textEl.dataset.type = type;
+      textEl.textContent = '';
+      typing = true;
+      const fullText = text;
+      let i = 0;
+      const baseSpeed = type === 'transition' || type === 'moment' ? 38 : 18;
+      const step = () => {
+        if (i >= fullText.length) { typing = false; return; }
+        textEl.textContent = fullText.slice(0, ++i);
+        const ch = fullText[i - 1];
+        const delay = ch === '.' || ch === '!' || ch === '?' ? baseSpeed * 6
+                   : ch === ',' || ch === ';' ? baseSpeed * 3
+                   : baseSpeed;
+        typewriterTimer = setTimeout(step, delay);
+      };
+      step();
+    }
+
+    function finishTyping() {
+      if (typewriterTimer) { clearTimeout(typewriterTimer); typewriterTimer = null; }
+      const s = scenes[index];
+      textEl.textContent = s.text ?? '';
+      typing = false;
+    }
+
+    function render() {
+      const s = scenes[index];
+      // Persist
+      try { localStorage.setItem(storageKey, String(index)); } catch {}
+      // Top chrome
+      progressLabel.textContent = `${index + 1} / ${scenes.length}`;
+      progressBar.style.width = `${((index + 1) / scenes.length) * 100}%`;
+      nextLabel.textContent = index === scenes.length - 1 ? 'Finish' : 'Continue';
+
+      // Marker
+      if (s.marker) {
+        markerEl.textContent = s.marker;
+        gsap.fromTo(markerEl, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.6, onComplete: () => {
+          gsap.to(markerEl, { opacity: 0, duration: 0.5, delay: 1.4 });
+        }});
+      } else {
+        markerEl.textContent = '';
+        markerEl.style.opacity = '0';
+      }
+
+      // Audio cue
+      if (s.audioCue) {
+        audioCueText.textContent = s.audioCue;
+        audioCue.style.opacity = '1';
+      } else {
+        audioCue.style.opacity = '0';
+      }
+
+      // Visual layers
+      setBackdrop(s.backdrop);
+      setCharacters(s);
+      applyTransitionIn(s.transition);
+      playFx(s.fx);
+
+      // Speaker + text
+      speakerEl.textContent = s.speaker ? s.speaker : '';
+      typewrite(s.text || '', s.type);
+    }
+
+    function next() {
+      if (typing) { finishTyping(); return; }
+      if (index < scenes.length - 1) {
+        index += 1;
+        render();
+      } else {
+        // End — go back to book page
+        const slug = reader.dataset.bookSlug;
+        location.href = `/books/${slug}`;
+      }
+    }
+
+    function prev() {
+      if (typing) { finishTyping(); return; }
+      if (index > 0) { index -= 1; render(); }
+    }
+
+    nextBtn.addEventListener('click', next);
+    document.addEventListener('keydown', (e) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      if (e.key === ' ' || e.key === 'ArrowRight' || e.key === 'Enter') { e.preventDefault(); next(); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+      else if (e.key === 'Escape') {
+        const slug = reader.dataset.bookSlug;
+        location.href = `/books/${slug}`;
+      }
+    });
+    // Tap on the stage to advance (but not on chrome / buttons)
+    stage.addEventListener('click', next);
+
+    render();
+  }
+
+  function init() {
+    document.querySelectorAll<HTMLElement>('[data-reader]').forEach(setup);
+  }
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>

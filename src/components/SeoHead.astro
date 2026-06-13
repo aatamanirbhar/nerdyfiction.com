@@ -1,0 +1,85 @@
+---
+/**
+ * SeoHead — central <head> metadata.
+ *
+ * Pass per-page values; everything else falls back to site-wide defaults.
+ * Emits: <title>, description, canonical, OG, Twitter card, JSON-LD slot.
+ */
+import { canonical, siteJsonLd } from '@lib/seo';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Path WITHOUT origin, e.g. "/books/ordinary-gods" */
+  path: string;
+  /** Absolute or root-relative image URL for OG/Twitter */
+  image?: string;
+  imageAlt?: string;
+  type?: 'website' | 'article' | 'book';
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  keywords?: string[];
+  /** Extra JSON-LD blocks (Book, Chapter, Breadcrumb, etc.) */
+  jsonLd?: Array<Record<string, unknown>>;
+  /** Disable indexing for this page only */
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  path,
+  image = '/og-default.png',
+  imageAlt = 'Nerdy Fiction',
+  type = 'website',
+  publishedTime,
+  modifiedTime,
+  author,
+  keywords = [],
+  jsonLd = [],
+  noindex = false,
+} = Astro.props;
+
+const siteName = 'Nerdy Fiction';
+const fullTitle = path === '/' ? `${title} — ${siteName}` : `${title} | ${siteName}`;
+const url = canonical(path);
+const imageUrl = image.startsWith('http') ? image : canonical(image);
+const allKeywords = [...new Set([...keywords, 'visual novel', 'web fiction', 'nerdy fiction'])];
+const ldBlocks = [siteJsonLd(), ...jsonLd];
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={url} />
+{keywords.length > 0 && <meta name="keywords" content={allKeywords.join(', ')} />}
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+{author && <meta name="author" content={author} />}
+
+<!-- Open Graph -->
+<meta property="og:site_name" content={siteName} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={url} />
+<meta property="og:type" content={type} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content={imageAlt} />
+<meta property="og:locale" content="en_US" />
+{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+{modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+{author && <meta property="article:author" content={author} />}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image:alt" content={imageAlt} />
+
+<!-- RSS auto-discovery -->
+<link rel="alternate" type="application/rss+xml" title={`${siteName} — latest chapters`} href="/rss.xml" />
+
+<!-- JSON-LD -->
+{ldBlocks.map(block => (
+  <script type="application/ld+json" set:html={JSON.stringify(block)} />
+))}
