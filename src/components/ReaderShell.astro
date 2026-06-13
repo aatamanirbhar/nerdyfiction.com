@@ -6,6 +6,7 @@
  *   pose / position / fx based on the current scene index.
  * - Typewriter prints the current scene's text. Space / ArrowRight / click advances.
  *   ArrowLeft goes back. Esc returns to the book page.
+ * - Procedural audio cues are synthesised in-browser (Web Audio API) — no assets.
  * - Progress is persisted in localStorage keyed by chapter id.
  */
 import SceneStage from './SceneStage.astro';
@@ -16,7 +17,7 @@ interface Props {
   bookTitle: string;
   chapterNumber: number;
   chapterTitle: string;
-  scenes: any[]; // Scene[] from src/content/config.ts — kept loose to avoid astro:content import here
+  scenes: any[];
   characters: Array<{ id: string; name: string; silhouetteColor: string }>;
 }
 
@@ -46,7 +47,17 @@ const charactersJson = JSON.stringify(characters);
       <p class="font-mono uppercase tracking-[0.3em] text-[10px] text-ink-300">{bookTitle}</p>
       <p class="font-display text-sm text-ink-50">Chapter {chapterNumber} &middot; {chapterTitle}</p>
     </div>
-    <div class="pointer-events-auto flex items-center gap-2 backdrop-blur-md bg-ink-950/40 px-3 py-1.5 rounded-sm border border-ink-700/40">
+    <div class="pointer-events-auto flex items-center gap-3 backdrop-blur-md bg-ink-950/40 px-3 py-1.5 rounded-sm border border-ink-700/40">
+      <button
+        type="button"
+        class="font-mono uppercase tracking-widest text-[10px] text-ink-300 hover:text-ink-50 transition-colors"
+        data-audio-toggle
+        aria-label="Toggle ambient audio"
+      >
+        <span data-audio-on-label class="hidden">&#9836; on</span>
+        <span data-audio-off-label>&#9836; off</span>
+      </button>
+      <span class="text-ink-700">|</span>
       <span class="font-mono uppercase tracking-widest text-[10px] text-ink-300" data-progress-label>1 / {scenes.length}</span>
     </div>
   </div>
@@ -117,12 +128,10 @@ const charactersJson = JSON.stringify(characters);
     text-align: center; font-style: italic; letter-spacing: 0.08em; color: #b09f7d;
   }
 
-  /* tilt-world FX rotates the stage subtly */
   .reader-shell[data-fx-active="tilt-world"] [data-scene-stage] {
     transform: perspective(900px) rotateX(2deg) rotateZ(-1deg) scale(1.03);
     transition: transform 1.2s ease-out;
   }
-  /* time-pinch FX desaturates */
   .reader-shell[data-fx-active="time-pinch"] [data-scene-stage] {
     filter: saturate(0.6) contrast(1.1);
     transition: filter 0.8s ease-out;
@@ -145,6 +154,216 @@ const charactersJson = JSON.stringify(characters);
     marker?: string;
   };
 
+  /* ---------------- Procedural audio (Web Audio API, no assets) ---------------- */
+  class CueAudio {
+    private ctx: AudioContext | null = null;
+    private master: GainNode | null = null;
+    private droneNodes: { stop: () => void } | null = null;
+    public enabled = false;
+
+    enable() {
+      if (this.ctx) { this.enabled = true; return; }
+      try {
+        const AC = (window.AudioContext || (window as any).webkitAudioContext);
+        if (!AC) return;
+        this.ctx = new AC();
+        this.master = this.ctx.createGain();
+        this.master.gain.value = 0.18;
+        this.master.connect(this.ctx.destination);
+        this.enabled = true;
+      } catch { /* ignore */ }
+    }
+
+    disable() {
+      this.enabled = false;
+      this.stopDrone();
+      if (this.master) this.master.gain.value = 0;
+    }
+
+    private env(node: GainNode, attack: number, hold: number, release: number, peak = 1) {
+      if (!this.ctx) return;
+      const t = this.ctx.currentTime;
+      node.gain.cancelScheduledValues(t);
+      node.gain.setValueAtTime(0.0001, t);
+      node.gain.exponentialRampToValueAtTime(peak, t + attack);
+      node.gain.setValueAtTime(peak, t + attack + hold);
+      node.gain.exponentialRampToValueAtTime(0.0001, t + attack + hold + release);
+    }
+
+    private noiseBuffer(seconds = 1) {
+      if (!this.ctx) return null;
+      const len = Math.floor(this.ctx.sampleRate * seconds);
+      const buf = this.ctx.createBuffer(1, len, this.ctx.sampleRate);
+      const data = buf.getChannelData(0);
+      for (let i = 0; i < len; i++) data[i] = Math.random() * 2 - 1;
+      return buf;
+    }
+
+    bell(freq = 440) {
+      if (!this.enabled || !this.ctx || !this.master) return;
+      const osc = this.ctx.createOscillator();
+      const harm = this.ctx.createOscillator();
+      const g = this.ctx.createGain();
+      osc.type = 'sine'; osc.frequency.value = freq;
+      harm.type = 'sine'; harm.frequency.value = freq * 2.76;
+      osc.connect(g); harm.connect(g); g.connect(this.master);
+      this.env(g, 0.005, 0.05, 2.5, 0.35);
+      const t = this.ctx.currentTime;
+      osc.start(t); harm.start(t);
+      osc.stop(t + 2.6); harm.stop(t + 2.6);
+    }
+
+    streak() {
+      if (!this.enabled || !this.ctx || !this.master) return;
+      const buf = this.noiseBuffer(0.5);
+      if (!buf) return;
+      const src = this.ctx.createBufferSource();
+      const bp = this.ctx.createBiquadFilter();
+      const g = this.ctx.createGain();
+      src.buffer = buf;
+      bp.type = 'bandpass'; bp.frequency.value = 1800; bp.Q.value = 0.7;
+      src.connect(bp); bp.connect(g); g.connect(this.master);
+      this.env(g, 0.005, 0.04, 0.35, 0.6);
+      const t = this.ctx.currentTime;
+      src.start(t); src.stop(t + 0.5);
+      // accompanying low impact
+      const sub = this.ctx.createOscillator();
+      const sg = this.ctx.createGain();
+      sub.type = 'sine'; sub.frequency.setValueAtTime(120, t);
+      sub.frequency.exponentialRampToValueAtTime(40, t + 0.4);
+      sub.connect(sg); sg.connect(this.master);
+      this.env(sg, 0.005, 0.02, 0.5, 0.5);
+      sub.start(t); sub.stop(t + 0.55);
+    }
+
+    pinch() {
+      if (!this.enabled || !this.ctx || !this.master) return;
+      const osc = this.ctx.createOscillator();
+      const g = this.ctx.createGain();
+      osc.type = 'sine';
+      const t = this.ctx.currentTime;
+      osc.frequency.setValueAtTime(880, t);
+      osc.frequency.exponentialRampToValueAtTime(220, t + 0.7);
+      osc.connect(g); g.connect(this.master);
+      this.env(g, 0.01, 0.05, 0.8, 0.25);
+      osc.start(t); osc.stop(t + 0.95);
+    }
+
+    bookHover() {
+      if (!this.enabled || !this.ctx || !this.master) return;
+      const osc = this.ctx.createOscillator();
+      const g = this.ctx.createGain();
+      osc.type = 'triangle'; osc.frequency.value = 196;
+      osc.connect(g); g.connect(this.master);
+      this.env(g, 0.4, 0.3, 1.2, 0.22);
+      const t = this.ctx.currentTime;
+      osc.start(t); osc.stop(t + 2.0);
+    }
+
+    glassSlide() {
+      if (!this.enabled || !this.ctx || !this.master) return;
+      const buf = this.noiseBuffer(0.6);
+      if (!buf) return;
+      const src = this.ctx.createBufferSource();
+      const bp = this.ctx.createBiquadFilter();
+      const g = this.ctx.createGain();
+      src.buffer = buf;
+      bp.type = 'highpass'; bp.frequency.value = 3000;
+      src.connect(bp); bp.connect(g); g.connect(this.master);
+      this.env(g, 0.02, 0.1, 0.5, 0.25);
+      const t = this.ctx.currentTime;
+      src.start(t); src.stop(t + 0.7);
+    }
+
+    transferZap() {
+      if (!this.enabled || !this.ctx || !this.master) return;
+      const osc = this.ctx.createOscillator();
+      const g = this.ctx.createGain();
+      osc.type = 'sawtooth';
+      const t = this.ctx.currentTime;
+      osc.frequency.setValueAtTime(140, t);
+      osc.frequency.exponentialRampToValueAtTime(900, t + 0.25);
+      osc.frequency.exponentialRampToValueAtTime(180, t + 0.55);
+      osc.connect(g); g.connect(this.master);
+      this.env(g, 0.005, 0.08, 0.4, 0.18);
+      osc.start(t); osc.stop(t + 0.7);
+    }
+
+    metalShimmer() {
+      if (!this.enabled || !this.ctx || !this.master) return;
+      const t = this.ctx.currentTime;
+      [392, 587, 784, 1175].forEach((f, i) => {
+        const o = this.ctx!.createOscillator();
+        const g = this.ctx!.createGain();
+        o.type = 'sine'; o.frequency.value = f;
+        o.connect(g); g.connect(this.master!);
+        g.gain.setValueAtTime(0.0001, t + i * 0.08);
+        g.gain.exponentialRampToValueAtTime(0.12, t + i * 0.08 + 0.05);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + i * 0.08 + 1.5);
+        o.start(t + i * 0.08); o.stop(t + i * 0.08 + 1.6);
+      });
+    }
+
+    skid() {
+      if (!this.enabled || !this.ctx || !this.master) return;
+      const buf = this.noiseBuffer(0.9);
+      if (!buf) return;
+      const src = this.ctx.createBufferSource();
+      const bp = this.ctx.createBiquadFilter();
+      const g = this.ctx.createGain();
+      src.buffer = buf;
+      bp.type = 'bandpass'; bp.frequency.value = 1200; bp.Q.value = 1.2;
+      src.connect(bp); bp.connect(g); g.connect(this.master);
+      this.env(g, 0.005, 0.45, 0.5, 0.45);
+      const t = this.ctx.currentTime;
+      src.start(t); src.stop(t + 1.0);
+    }
+
+    typeTick() {
+      if (!this.enabled || !this.ctx || !this.master) return;
+      const o = this.ctx.createOscillator();
+      const g = this.ctx.createGain();
+      o.type = 'square'; o.frequency.value = 2400 + Math.random() * 600;
+      o.connect(g); g.connect(this.master);
+      g.gain.value = 0.025;
+      const t = this.ctx.currentTime;
+      g.gain.setValueAtTime(0.025, t);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.03);
+      o.start(t); o.stop(t + 0.04);
+    }
+
+    startDrone(freq = 55) {
+      this.stopDrone();
+      if (!this.enabled || !this.ctx || !this.master) return;
+      const o1 = this.ctx.createOscillator();
+      const o2 = this.ctx.createOscillator();
+      const lp = this.ctx.createBiquadFilter();
+      const g = this.ctx.createGain();
+      o1.type = 'sawtooth'; o1.frequency.value = freq;
+      o2.type = 'sawtooth'; o2.frequency.value = freq * 1.005;
+      lp.type = 'lowpass'; lp.frequency.value = 380;
+      o1.connect(lp); o2.connect(lp); lp.connect(g); g.connect(this.master);
+      const t = this.ctx.currentTime;
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.08, t + 2.5);
+      o1.start(t); o2.start(t);
+      this.droneNodes = {
+        stop: () => {
+          if (!this.ctx) return;
+          const now = this.ctx.currentTime;
+          g.gain.cancelScheduledValues(now);
+          g.gain.setValueAtTime(g.gain.value, now);
+          g.gain.exponentialRampToValueAtTime(0.0001, now + 1.2);
+          o1.stop(now + 1.3); o2.stop(now + 1.3);
+        },
+      };
+    }
+
+    stopDrone() {
+      if (this.droneNodes) { try { this.droneNodes.stop(); } catch {} this.droneNodes = null; }
+    }
+  }
+
   function setup(reader: HTMLElement) {
     const scenes: Scene[] = JSON.parse(reader.dataset.scenes || '[]');
     if (scenes.length === 0) return;
@@ -161,12 +380,31 @@ const charactersJson = JSON.stringify(characters);
     const markerEl      = reader.querySelector<HTMLElement>('[data-marker]')!;
     const audioCue      = reader.querySelector<HTMLElement>('[data-audio-cue]')!;
     const audioCueText  = reader.querySelector<HTMLElement>('[data-audio-cue-text]')!;
+    const audioBtn      = reader.querySelector<HTMLButtonElement>('[data-audio-toggle]')!;
+    const audioOn       = reader.querySelector<HTMLElement>('[data-audio-on-label]')!;
+    const audioOff      = reader.querySelector<HTMLElement>('[data-audio-off-label]')!;
+
+    const audio = new CueAudio();
+    audioBtn.addEventListener('click', () => {
+      if (audio.enabled) {
+        audio.disable();
+        audioOn.classList.add('hidden');
+        audioOff.classList.remove('hidden');
+      } else {
+        audio.enable();
+        if (audio.enabled) {
+          audio.startDrone(55);
+          audioOn.classList.remove('hidden');
+          audioOff.classList.add('hidden');
+        }
+      }
+    });
 
     let index = 0;
     try {
       const stored = parseInt(localStorage.getItem(storageKey) || '0', 10);
       if (!Number.isNaN(stored) && stored >= 0 && stored < scenes.length) index = stored;
-    } catch { /* localStorage unavailable */ }
+    } catch {}
 
     let typewriterTimer: ReturnType<typeof setTimeout> | null = null;
     let typing = false;
@@ -179,7 +417,6 @@ const charactersJson = JSON.stringify(characters);
     }
 
     function setCharacters(scene: Scene) {
-      // Hide all character layers, then activate the ones in this scene
       stage.querySelectorAll<HTMLElement>('[data-character-layer]').forEach(layer => {
         const id = layer.dataset.characterLayer!;
         const charInScene = scene.characters.find(c => c.id === id);
@@ -191,6 +428,10 @@ const charactersJson = JSON.stringify(characters);
           slot.querySelectorAll<HTMLElement>('[data-character-pose]').forEach(poseEl => {
             poseEl.dataset.active = poseEl.dataset.characterPose === charInScene.pose ? 'true' : 'false';
           });
+          // subtle entry animation per character slot
+          gsap.fromTo(slot,
+            { y: 28, scale: 0.96 },
+            { y: 0, scale: 1, duration: 0.9, ease: 'power3.out' });
         }
       });
     }
@@ -198,7 +439,6 @@ const charactersJson = JSON.stringify(characters);
     function playFx(name: string) {
       stage.dataset.fx = name;
       reader.dataset.fxActive = name;
-      // Hide all overlays first
       stage.querySelectorAll<HTMLElement>('[data-fx-layer]').forEach(el => {
         gsap.set(el, { opacity: 0, clearProps: 'transform' });
       });
@@ -207,6 +447,7 @@ const charactersJson = JSON.stringify(characters);
         case 'red-streak': {
           if (!layer) return;
           const bar = layer.querySelector<HTMLElement>('[data-streak-bar]');
+          const bolt = layer.querySelector<HTMLElement>('[data-streak-bolt]');
           gsap.set(layer, { opacity: 1 });
           if (bar) {
             gsap.fromTo(bar,
@@ -215,6 +456,12 @@ const charactersJson = JSON.stringify(characters);
                 onComplete: () => gsap.to(layer, { opacity: 0, duration: 0.3 }) }
             );
           }
+          if (bolt) {
+            gsap.fromTo(bolt,
+              { x: '120%', opacity: 0 },
+              { x: '-120%', opacity: 1, duration: 0.55, delay: 0.05, ease: 'power3.out' });
+          }
+          audio.streak();
           break;
         }
         case 'flash': {
@@ -233,16 +480,96 @@ const charactersJson = JSON.stringify(characters);
                 onComplete: () => gsap.to(book, { y: 0, duration: 2.5, ease: 'sine.inOut', repeat: -1, yoyo: true }) }
             );
           }
+          audio.bookHover();
           break;
         }
         case 'time-pinch': {
           if (!layer) return;
           gsap.fromTo(layer, { opacity: 0 }, { opacity: 1, duration: 0.5 });
+          audio.pinch();
           break;
         }
         case 'tilt-world': {
           if (!layer) return;
           gsap.fromTo(layer, { opacity: 0 }, { opacity: 0.6, duration: 0.6 });
+          break;
+        }
+        case 'glass-slide': {
+          if (!layer) return;
+          gsap.set(layer, { opacity: 1 });
+          const g = layer.querySelector<HTMLElement>('[data-slide-glass]');
+          if (g) {
+            gsap.fromTo(g,
+              { x: -100, opacity: 0 },
+              { x: 80, opacity: 1, duration: 1.4, ease: 'power2.inOut',
+                onComplete: () => gsap.to(layer, { opacity: 0, duration: 0.4, delay: 0.5 }) });
+          }
+          audio.glassSlide();
+          break;
+        }
+        case 'metal-reshape': {
+          if (!layer) return;
+          gsap.set(layer, { opacity: 1 });
+          const disc = layer.querySelector<HTMLElement>('[data-metal-disc]');
+          if (disc) {
+            gsap.fromTo(disc,
+              { rotate: 0, scale: 0.6, opacity: 0 },
+              { rotate: 360, scale: 1, opacity: 0.9, duration: 2.2, ease: 'power2.out',
+                onComplete: () => gsap.to(layer, { opacity: 0, duration: 0.6, delay: 0.4 }) });
+          }
+          audio.metalShimmer();
+          break;
+        }
+        case 'energy-transfer': {
+          if (!layer) return;
+          gsap.set(layer, { opacity: 1 });
+          const arc = layer.querySelector<HTMLElement>('[data-energy-arc]');
+          if (arc) {
+            gsap.fromTo(arc,
+              { scaleX: 0, transformOrigin: 'left center', opacity: 0 },
+              { scaleX: 1, opacity: 1, duration: 0.7, ease: 'power3.out',
+                onComplete: () => gsap.to(layer, { opacity: 0, duration: 0.4, delay: 0.3 }) });
+          }
+          audio.transferZap();
+          break;
+        }
+        case 'ant-trail': {
+          if (!layer) return;
+          gsap.set(layer, { opacity: 1 });
+          const dot = layer.querySelector<HTMLElement>('[data-ant-dot]');
+          if (dot) {
+            gsap.fromTo(dot,
+              { x: 0, y: 0, opacity: 0 },
+              { x: window.innerWidth * 0.9, y: -30, opacity: 1, duration: 4.0, ease: 'none',
+                onComplete: () => gsap.to(layer, { opacity: 0, duration: 0.6 }) });
+          }
+          break;
+        }
+        case 'data-stream': {
+          if (!layer) return;
+          gsap.fromTo(layer, { opacity: 0 }, { opacity: 0.85, duration: 0.6 });
+          audio.typeTick();
+          setTimeout(() => audio.typeTick(), 120);
+          setTimeout(() => audio.typeTick(), 260);
+          break;
+        }
+        case 'truck-stop': {
+          if (!layer) return;
+          gsap.set(layer, { opacity: 1 });
+          const skid = layer.querySelector<HTMLElement>('[data-skid-bar]');
+          if (skid) {
+            gsap.fromTo(skid,
+              { x: '120%', opacity: 0 },
+              { x: '0%', opacity: 1, duration: 0.6, ease: 'power4.in',
+                onComplete: () => gsap.to(layer, { opacity: 0, duration: 0.5, delay: 0.4 }) });
+          }
+          audio.skid();
+          break;
+        }
+        case 'map-pulse': {
+          if (!layer) return;
+          gsap.fromTo(layer, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.9, ease: 'power2.out' });
+          audio.bell(660);
           break;
         }
         case 'none':
@@ -252,8 +579,6 @@ const charactersJson = JSON.stringify(characters);
     }
 
     function applyTransitionIn(kind: string) {
-      // We mostly rely on CSS opacity transitions in SceneStage backdrops.
-      // Add a brief stage-level effect for cinematic kinds:
       switch (kind) {
         case 'flash':
           gsap.fromTo(stage, { opacity: 0.2 }, { opacity: 1, duration: 0.3, ease: 'power2.out' });
@@ -272,6 +597,10 @@ const charactersJson = JSON.stringify(characters);
           gsap.set(stage, { opacity: 1, clipPath: 'none' });
           break;
       }
+      // text panel re-entry
+      gsap.fromTo(textEl,
+        { y: 14, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' });
     }
 
     function typewrite(text: string, type: string) {
@@ -301,52 +630,69 @@ const charactersJson = JSON.stringify(characters);
       typing = false;
     }
 
+    function playAudioCue(label: string | undefined) {
+      if (!label) return;
+      const l = label.toLowerCase();
+      if (l.includes('drone')) { audio.startDrone(55); return; }
+      if (l.includes('bell'))   return audio.bell(440);
+      if (l.includes('silence'))return audio.stopDrone();
+      if (l.includes('door') || l.includes('phone')) { audio.typeTick(); setTimeout(() => audio.typeTick(), 120); return; }
+      if (l.includes('hush') || l.includes('air'))  return audio.bookHover();
+      if (l.includes('freeway') || l.includes('traffic')) return audio.startDrone(70);
+      if (l.includes('skid') || l.includes('crash')) return audio.skid();
+      if (l.includes('streak') || l.includes('strike') || l.includes('flash')) return audio.streak();
+      if (l.includes('shimmer') || l.includes('metal')) return audio.metalShimmer();
+      if (l.includes('zap') || l.includes('transfer')) return audio.transferZap();
+      if (l.includes('pinch') || l.includes('narrow')) return audio.pinch();
+      if (l.includes('fire') || l.includes('smoke')) return audio.skid();
+      if (l.includes('map'))   return audio.bell(660);
+      if (l.includes('lamp') || l.includes('workshop')) return audio.metalShimmer();
+      // default: gentle tick
+      audio.typeTick();
+    }
+
     function render() {
       const s = scenes[index];
-      // Persist
       try { localStorage.setItem(storageKey, String(index)); } catch {}
-      // Top chrome
       progressLabel.textContent = `${index + 1} / ${scenes.length}`;
       progressBar.style.width = `${((index + 1) / scenes.length) * 100}%`;
       nextLabel.textContent = index === scenes.length - 1 ? 'Finish' : 'Continue';
 
-      // Marker
       if (s.marker) {
         markerEl.textContent = s.marker;
-        gsap.fromTo(markerEl, { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.6, onComplete: () => {
-          gsap.to(markerEl, { opacity: 0, duration: 0.5, delay: 1.4 });
-        }});
+        gsap.fromTo(markerEl,
+          { opacity: 0, y: -20, scale: 0.8, letterSpacing: '0.3em' },
+          { opacity: 1, y: 0, scale: 1, letterSpacing: '0em', duration: 0.7, ease: 'power3.out', onComplete: () => {
+            gsap.to(markerEl, { opacity: 0, duration: 0.6, delay: 1.6 });
+          }});
+        audio.bell(330);
       } else {
         markerEl.textContent = '';
         markerEl.style.opacity = '0';
       }
 
-      // Audio cue
       if (s.audioCue) {
         audioCueText.textContent = s.audioCue;
         audioCue.style.opacity = '1';
+        playAudioCue(s.audioCue);
       } else {
         audioCue.style.opacity = '0';
       }
 
-      // Visual layers
       setBackdrop(s.backdrop);
       setCharacters(s);
       applyTransitionIn(s.transition);
       playFx(s.fx);
 
-      // Speaker + text
       speakerEl.textContent = s.speaker ? s.speaker : '';
       typewrite(s.text || '', s.type);
     }
 
     function next() {
       if (typing) { finishTyping(); return; }
-      if (index < scenes.length - 1) {
-        index += 1;
-        render();
-      } else {
-        // End — go back to book page
+      if (index < scenes.length - 1) { index += 1; render(); }
+      else {
+        audio.disable();
         const slug = reader.dataset.bookSlug;
         location.href = `/books/${slug}`;
       }
@@ -363,11 +709,11 @@ const charactersJson = JSON.stringify(characters);
       if (e.key === ' ' || e.key === 'ArrowRight' || e.key === 'Enter') { e.preventDefault(); next(); }
       else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
       else if (e.key === 'Escape') {
+        audio.disable();
         const slug = reader.dataset.bookSlug;
         location.href = `/books/${slug}`;
       }
     });
-    // Tap on the stage to advance (but not on chrome / buttons)
     stage.addEventListener('click', next);
 
     render();

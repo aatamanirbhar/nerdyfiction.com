@@ -2,718 +2,270 @@
   "book": "ordinary-gods",
   "number": 1,
   "title": "Ordinary Gods",
-  "summary": "The universe does not announce itself. On the last night of 2026, at exactly 10:00 PM Eastern, something changes. Twelve people hesitate. Robert Calloway is one of them — and an oversized art book in a Studio City waiting room is about to refuse to fall.",
+  "summary": "On the last night of 2026, at exactly 10:00 PM Eastern, something changes. A small handful hesitate. An actor, a mechanic, a scientist, a jeweler, and a man who can talk to one ant a day find each other — and learn they are not alone.",
   "publishedDate": "2026-06-13",
-  "estimatedMinutes": 14,
+  "estimatedMinutes": 55,
   "keywords": [
     "Ordinary Gods",
+    "The Divine Ascension",
     "Chapter 1",
     "Robert Calloway",
+    "Alex Whitfield",
+    "Kassidy Chen",
+    "Sam Patel",
+    "Farrukh",
     "visual novel",
     "supernatural fiction"
   ],
   "scenes": [
-    {
-      "id": "prologue-01",
-      "type": "narration",
-      "text": "The universe does not announce itself.",
-      "backdrop": "cosmos",
-      "characters": [],
-      "fx": "none",
-      "transition": "slow-fade",
-      "audioCue": "low drone"
-    },
-    {
-      "id": "prologue-02",
-      "type": "narration",
-      "text": "For all its scale — the unfathomable distances, the slow burn of stars older than language, the quiet machinery of galaxies spinning in the dark — the universe tends toward silence. It does not knock. It does not warn.",
-      "backdrop": "cosmos",
-      "characters": [],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "prologue-03",
-      "type": "narration",
-      "text": "When something changes at the level where reality itself is written, it does not arrive with thunder.",
-      "backdrop": "cosmos",
-      "characters": [],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "prologue-04",
-      "type": "narration",
-      "text": "It arrives the way a single drop of ink finds a glass of water. Unseen, for one half of one second. And then, everywhere.",
-      "backdrop": "cosmos",
-      "characters": [],
-      "fx": "none",
-      "transition": "slow-fade"
-    },
-    {
-      "id": "prologue-break-01",
-      "type": "transition",
-      "text": "· · ·",
-      "backdrop": "void",
-      "characters": [],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "prologue-05",
-      "type": "narration",
-      "text": "On the last night of 2026, at precisely 10:00 PM Eastern Standard Time, something changed.",
-      "backdrop": "cosmos",
-      "characters": [],
-      "fx": "none",
-      "transition": "slow-fade",
-      "audioCue": "single struck bell"
-    },
-    {
-      "id": "prologue-06",
-      "type": "narration",
-      "text": "It happened everywhere at once and nowhere in particular. No satellite recorded it. No instrument on Earth, however sensitive, so much as twitched.",
-      "backdrop": "cosmos",
-      "characters": [],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "prologue-07",
-      "type": "narration",
-      "text": "If you had asked any of the eight billion people on the planet that night whether anything unusual had occurred, every single one of them — every last one except twelve — would have said no.",
-      "backdrop": "cosmos",
-      "characters": [],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "prologue-08",
-      "type": "narration",
-      "text": "Those twelve would have hesitated.",
-      "backdrop": "cosmos",
-      "characters": [],
-      "fx": "none",
-      "transition": "slow-fade"
-    },
-    {
-      "id": "prologue-09",
-      "type": "narration",
-      "text": "Just for a second.",
-      "backdrop": "cosmos",
-      "characters": [],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "prologue-10",
-      "type": "narration",
-      "text": "And then they would have said no, too.",
-      "backdrop": "cosmos",
-      "characters": [],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "prologue-break-02",
-      "type": "transition",
-      "text": "· · ·",
-      "backdrop": "void",
-      "characters": [],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "prologue-11",
-      "type": "narration",
-      "text": "This is the story of four of them.",
-      "backdrop": "cosmos",
-      "characters": [],
-      "fx": "none",
-      "transition": "slow-fade"
-    },
-    {
-      "id": "prologue-12",
-      "type": "narration",
-      "text": "It begins, as most disappointing things do, in a waiting room.",
-      "backdrop": "cosmos",
-      "characters": [],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "prologue-break-03",
-      "type": "transition",
-      "text": "· · ·",
-      "backdrop": "void",
-      "characters": [],
-      "fx": "none",
-      "transition": "fade"
-    },
+    { "id": "prologue-01", "type": "narration", "text": "The universe does not announce itself.", "backdrop": "cosmos", "characters": [], "fx": "none", "transition": "slow-fade", "audioCue": "low drone" },
+    { "id": "prologue-02", "type": "narration", "text": "For all its scale — the unfathomable distances, the slow burn of stars older than language, the quiet machinery of galaxies spinning in the dark — the universe tends toward silence. It does not knock. It does not warn.", "backdrop": "cosmos", "characters": [], "fx": "none", "transition": "fade" },
+    { "id": "prologue-03", "type": "narration", "text": "When something changes at the level where reality itself is written, it does not arrive with thunder.", "backdrop": "cosmos", "characters": [], "fx": "none", "transition": "fade" },
+    { "id": "prologue-04", "type": "narration", "text": "It arrives the way a single drop of ink finds a glass of water. Unseen, for one half of one second. And then, everywhere.", "backdrop": "cosmos", "characters": [], "fx": "none", "transition": "slow-fade" },
+    { "id": "prologue-break-01", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
+    { "id": "prologue-05", "type": "narration", "text": "On the last night of 2026, at precisely 10:00 PM Eastern Standard Time, something changed.", "backdrop": "cosmos", "characters": [], "fx": "none", "transition": "slow-fade", "audioCue": "single struck bell" },
+    { "id": "prologue-06", "type": "narration", "text": "It happened everywhere at once and nowhere in particular. No satellite recorded it. No instrument on Earth, however sensitive, so much as twitched.", "backdrop": "cosmos", "characters": [], "fx": "none", "transition": "fade" },
+    { "id": "prologue-07", "type": "narration", "text": "If you had asked any of the eight billion people on the planet that night whether anything unusual had occurred, almost every single one of them would have said no.", "backdrop": "cosmos", "characters": [], "fx": "none", "transition": "fade" },
+    { "id": "prologue-08", "type": "narration", "text": "A small handful would have hesitated.", "backdrop": "cosmos", "characters": [], "fx": "none", "transition": "slow-fade" },
+    { "id": "prologue-09", "type": "narration", "text": "Just for a second.", "backdrop": "cosmos", "characters": [], "fx": "none", "transition": "fade" },
+    { "id": "prologue-10", "type": "narration", "text": "And then they would have said no, too.", "backdrop": "cosmos", "characters": [], "fx": "none", "transition": "fade" },
+    { "id": "prologue-break-02", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
+    { "id": "prologue-11", "type": "narration", "text": "This is the story of four of them.", "backdrop": "cosmos", "characters": [], "fx": "none", "transition": "slow-fade" },
+    { "id": "prologue-12", "type": "narration", "text": "It begins, as most disappointing things do, in a waiting room.", "backdrop": "cosmos", "characters": [], "fx": "none", "transition": "fade" },
+    { "id": "prologue-break-03", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
 
-    {
-      "id": "robert-01",
-      "type": "narration",
-      "text": "The waiting room of Marcus Heinz’s Studio City office had the kind of furniture that was expensive specifically so that you would notice it was expensive.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "iris",
-      "marker": "I.",
-      "audioCue": "central air, distant traffic"
-    },
-    {
-      "id": "robert-02",
-      "type": "narration",
-      "text": "A leather couch the color of dried blood. A glass coffee table with absolutely nothing on it except a single, oversized art book about the films of a director Robert Calloway had never heard of, positioned at what felt like a deliberate forty-five-degree angle.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "robert-03",
-      "type": "narration",
-      "text": "On the wall, in a frame that had probably cost more than Robert’s rent, hung a poster for a movie that had grossed four hundred million dollars worldwide.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "robert-04",
-      "type": "narration",
-      "text": "Robert had researched it once, out of curiosity and self-loathing in roughly equal measure. The lead actor in that poster had been twenty-six when it was shot.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "robert-05",
-      "type": "thought",
-      "speaker": "Robert",
-      "text": "Robert was twenty-six now.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
-      ],
-      "fx": "none",
-      "transition": "slow-fade"
-    },
-    {
-      "id": "robert-06",
-      "type": "narration",
-      "text": "He sat very straight on the blood-leather couch, both feet flat on the floor, hands folded in his lap like he was at a job interview — which, in the only way that mattered to him, he was.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "robert-07",
-      "type": "narration",
-      "text": "He had been the first to arrive. He was always the first to arrive. Fifteen minutes early to every audition, every meeting, every callback, as if punctuality were a substitute for everything else he didn’t have.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "robert-08",
-      "type": "narration",
-      "text": "A reel that nobody watched past the ten-second mark. A reputation. A name that meant something to somebody.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "robert-09",
-      "type": "narration",
-      "text": "He’d been sitting in this exact spot for twenty-five minutes. The meeting had been for seven.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "slow-fade"
-    },
-    {
-      "id": "robert-10",
-      "type": "narration",
-      "text": "This was a callback — technically. He had auditioned for a supporting role in an indie feature eight days ago, a small but meaty part, the kind of role that could actually do something for a career if the right person saw it.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "robert-11",
-      "type": "narration",
-      "text": "He had worked on it for a week. He’d recorded himself doing the scene eleven times and watched all eleven back with the sound of his own voice making his skin crawl, the way it always did, and he’d kept going anyway because the twelfth time felt closer to right.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "robert-12",
-      "type": "narration",
-      "text": "He had not heard the word “callback” used anywhere in the three voicemails and two emails that had led him here tonight. What he had heard, in increasingly vague language, was that Marcus wanted to “touch base” and “loop him in on some thoughts” before the holidays.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "robert-13",
-      "type": "thought",
-      "speaker": "Robert",
-      "text": "Robert had told himself this was a good sign. People didn’t fly you in — well, he’d driven, but the principle held — to deliver bad news in person.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "robert-14",
-      "type": "thought",
-      "speaker": "Robert",
-      "text": "Bad news was an email. Bad news was nothing at all, just silence stretching out until you stopped checking your phone every four minutes. In person meant they liked something. In person meant there was a conversation to be had.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "robert-15",
-      "type": "narration",
-      "text": "He checked his phone. 7:26 PM. New Year’s Eve. Outside the tinted office windows, Los Angeles was already gearing up for the kind of night where everyone pretended the changing of a number meant something had actually changed.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "slow-fade"
-    },
-    {
-      "id": "robert-16",
-      "type": "narration",
-      "text": "The assistant — a young woman who’d introduced herself as Priya and then immediately stopped making eye contact with him, which Robert had learned over the years to read as a bad sign — had told him Marcus was running behind.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "robert-17",
-      "type": "narration",
-      "text": "That had been twenty minutes ago. Robert had nodded, said of course, no problem, take your time, and then sat back down to wait in a silence so complete he could hear the office’s central air system click on and off.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "robert-18",
-      "type": "narration",
-      "text": "He stood up. Sitting still for this long made his skin itch, made his thoughts loop back on themselves in ways he didn’t like. He walked to the window.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "rising", "position": "center", "intensity": 0.95 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "robert-19",
-      "type": "narration",
-      "text": "Traffic on Ventura was already thickening, a river of red and white lights crawling toward wherever people went to feel like the year ending mattered.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "idle", "position": "right", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "robert-20",
-      "type": "narration",
-      "text": "He walked back. He sat down again. He picked up the art book, mostly for something to do with his hands, and let it fall open to a random page —",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "robert-21",
-      "type": "narration",
-      "text": "— a black-and-white photograph of a director on set, surrounded by people who were listening to him, actually listening, the way Robert imagined people might listen to him someday, if—",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "moment-slip",
-      "type": "moment",
-      "text": "The book slipped.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "reaching", "position": "center", "intensity": 1.0 }
-      ],
-      "fx": "time-pinch",
-      "transition": "slow-fade",
-      "audioCue": "the room narrows"
-    },
-    {
-      "id": "moment-slip-02",
-      "type": "narration",
-      "text": "It wasn’t dramatic. It wasn’t even really a slip — more like his hand simply forgot, for a fraction of a second, that it was holding something.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "reaching", "position": "center", "intensity": 1.0 }
-      ],
-      "fx": "time-pinch",
-      "transition": "fade"
-    },
-    {
-      "id": "moment-slip-03",
-      "type": "narration",
-      "text": "The book tipped off his palm and began to fall toward the glass table, toward that single empty spot where it had been so carefully, deliberately placed, and Robert’s whole body flinched in anticipation of the crash, the cracked glass, the look on Priya’s face, the end of whatever tiny chance he had at this meeting going well—",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "reeling", "position": "center", "intensity": 1.0 }
-      ],
-      "fx": "time-pinch",
-      "transition": "fade"
-    },
-    {
-      "id": "red-streak",
-      "type": "moment",
-      "text": "A streak of red light, jagged, impossibly fast — gone before he could even call it a memory.",
-      "backdrop": "flash-red",
-      "characters": [],
-      "fx": "red-streak",
-      "transition": "flash",
-      "audioCue": "a sound that isn’t a sound"
-    },
-    {
-      "id": "moment-stop",
-      "type": "moment",
-      "text": "The book stopped.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "reeling", "position": "center", "intensity": 1.0 }
-      ],
-      "fx": "book-float",
-      "transition": "iris",
-      "audioCue": "silence, perfect"
-    },
-    {
-      "id": "moment-stop-02",
-      "type": "narration",
-      "text": "Six inches above the table. Just — stopped. Hanging in the air at the exact angle it had been falling, as if time itself had reached out and pinched it between two fingers.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "reeling", "position": "center", "intensity": 1.0 }
-      ],
-      "fx": "book-float",
-      "transition": "fade"
-    },
-    {
-      "id": "moment-stop-03",
-      "type": "narration",
-      "text": "Robert stared at it.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "tense", "position": "center", "intensity": 1.0 }
-      ],
-      "fx": "book-float",
-      "transition": "fade"
-    },
-    {
-      "id": "moment-stop-04",
-      "type": "narration",
-      "text": "He became aware, in the back of his mind, of something else — something that had happened a half-second before the book left his hand, something he’d been too startled to register until now. A flash. Not in the room. Not in his eyes, exactly. Somewhere behind them, or through them.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "tense", "position": "center", "intensity": 1.0 }
-      ],
-      "fx": "tilt-world",
-      "transition": "slow-fade"
-    },
-    {
-      "id": "moment-stop-05",
-      "type": "thought",
-      "speaker": "Robert",
-      "text": "Something in him had — shifted. Like a key turning in a lock he hadn’t known was there.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "tense", "position": "center", "intensity": 1.0 }
-      ],
-      "fx": "tilt-world",
-      "transition": "fade"
-    },
-    {
-      "id": "moment-stop-06",
-      "type": "narration",
-      "text": "The book hung in the air.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "reaching", "position": "center", "intensity": 1.0 }
-      ],
-      "fx": "book-float",
-      "transition": "slow-fade"
-    },
-    {
-      "id": "moment-stop-07",
-      "type": "narration",
-      "text": "Robert reached out, very slowly, and closed his hand around it. The moment his fingers touched the cover, it dropped the remaining six inches into his palm with completely ordinary weight, as if it had never stopped at all.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "reaching", "position": "center", "intensity": 1.0 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "moment-stop-08",
-      "type": "narration",
-      "text": "He placed it back on the table. Exactly where it had been. At the forty-five-degree angle.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "moment-stop-09",
-      "type": "narration",
-      "text": "His hand was shaking.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
-      ],
-      "fx": "none",
-      "transition": "slow-fade"
-    },
-    {
-      "id": "aftermath-01",
-      "type": "thought",
-      "speaker": "Robert",
-      "text": "Okay. Okay, that. That happened. That was a thing that happened.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "aftermath-02",
-      "type": "narration",
-      "text": "He sat back down on the couch. His heart was going hard enough that he could feel it in his throat, in his fingertips, a high thin buzzing under his skin like he’d had too much coffee, except he hadn’t had any coffee, he’d been too nervous to drink anything before the meeting in case he needed to—",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.95 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "aftermath-03",
-      "type": "thought",
-      "speaker": "Robert",
-      "text": "Focus.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "aftermath-04",
-      "type": "narration",
-      "text": "He looked at the table. The book sat there, inert, exactly as before. He looked at his hand. Just a hand. Slightly damp now, but just a hand.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "aftermath-05",
-      "type": "thought",
-      "speaker": "Robert",
-      "text": "Did that happen?",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
-      ],
-      "fx": "none",
-      "transition": "slow-fade"
-    },
-    {
-      "id": "aftermath-06",
-      "type": "narration",
-      "text": "He thought about asking Priya if she’d seen it. He immediately understood, with the kind of clarity that arrives uninvited, exactly how that conversation would go, and exactly how it would end his career before it had even properly started.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "aftermath-07",
-      "type": "thought",
-      "speaker": "Robert",
-      "text": "Hi, sorry, quick question — did you happen to see that book just float for a second? No? Totally my imagination? Great, cool, awesome, anyway about that role—",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "marcus-enters-01",
-      "type": "narration",
-      "text": "The door to the inner office opened. Marcus Heinz emerged, already mid-sentence into his phone, raising one finger toward Robert in the universal gesture for one more minute that Robert had learned, over six years in this city, almost always meant ten to fifteen.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "left", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "iris",
-      "audioCue": "door, distant phone voice"
-    },
-    {
-      "id": "marcus-enters-02",
-      "type": "narration",
-      "text": "Robert smiled and nodded and sat very still, and underneath the smile his mind kept circling back to the book, hanging in the air, six inches above the glass, for no reason that the world as he understood it could explain.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "tense", "position": "left", "intensity": 0.95 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "marcus-enters-03",
-      "type": "thought",
-      "speaker": "Robert",
-      "text": "It was nerves. A trick of the eye. The kind of thing your brain does when you’ve been awake too long and wanting something too badly.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "tense", "position": "left", "intensity": 0.95 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "marcus-enters-04",
-      "type": "narration",
-      "text": "He believed this for almost six full minutes — right up until the meeting started, and Marcus Heinz told him, with the practiced gentleness of a man who did this several times a week,",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "left", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "marcus-dialog-01",
-      "type": "dialog",
-      "speaker": "Marcus Heinz",
-      "text": "We’ve decided to go in a different direction for the role. But you were really in the room with your audition — we’ll absolutely keep you in mind for future projects. Have a wonderful New Year.",
-      "backdrop": "studio-city",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "left", "intensity": 0.85 }
-      ],
-      "fx": "none",
-      "transition": "slow-fade",
-      "audioCue": "office hush"
-    },
-    {
-      "id": "exit-01",
-      "type": "narration",
-      "text": "Robert thanked him. Shook his hand. Walked out past Priya, who still didn’t make eye contact, and out into the parking structure, where he sat in his car for a long time before starting the engine.",
-      "backdrop": "sunset-window",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.95 }
-      ],
-      "fx": "none",
-      "transition": "slow-fade",
-      "audioCue": "distant freeway"
-    },
-    {
-      "id": "exit-02",
-      "type": "narration",
-      "text": "He didn’t think about the book again that night.",
-      "backdrop": "sunset-window",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "fade"
-    },
-    {
-      "id": "exit-03",
-      "type": "narration",
-      "text": "He would think about it again very soon.",
-      "backdrop": "sunset-window",
-      "characters": [
-        { "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }
-      ],
-      "fx": "none",
-      "transition": "slow-fade"
-    },
-    {
-      "id": "outro-break",
-      "type": "transition",
-      "text": "· · ·",
-      "backdrop": "void",
-      "characters": [],
-      "fx": "none",
-      "transition": "fade"
-    }
+    { "id": "robert-01", "type": "narration", "text": "The waiting room of Marcus Heinz's Studio City office had the kind of furniture that was expensive specifically so that you would notice it was expensive.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "iris", "marker": "I.", "audioCue": "central air, distant traffic" },
+    { "id": "robert-02", "type": "narration", "text": "A leather couch the color of dried blood. A glass coffee table with absolutely nothing on it except a single, oversized art book about the films of a director Robert Calloway had never heard of, positioned at what felt like a deliberate forty-five-degree angle.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "robert-03", "type": "narration", "text": "On the wall, in a frame that had probably cost more than Robert's rent, hung a poster for a movie that had grossed four hundred million dollars worldwide.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "robert-04", "type": "narration", "text": "Robert had researched it once, out of curiosity and self-loathing in roughly equal measure. The lead actor in that poster had been twenty-six when it was shot.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "robert-05", "type": "thought", "speaker": "Robert", "text": "Robert was twenty-six now.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "robert-06", "type": "narration", "text": "He sat very straight on the blood-leather couch, both feet flat on the floor, hands folded in his lap like he was at a job interview — which, in the only way that mattered to him, he was.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "robert-07", "type": "narration", "text": "He had been the first to arrive. He was always the first to arrive. Fifteen minutes early to every audition, every meeting, every callback, as if punctuality were a substitute for everything else he didn't have.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "robert-08", "type": "narration", "text": "He'd been sitting in this exact spot for twenty-five minutes. The meeting had been for seven.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "robert-09", "type": "narration", "text": "This was a callback — technically. He had auditioned for a supporting role in an indie feature eight days ago, a small but meaty part, the kind of role that could actually do something for a career if the right person saw it.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "robert-10", "type": "narration", "text": "He had not heard the word 'callback' used anywhere in the three voicemails and two emails that had led him here. What he had heard, in increasingly vague language, was that Marcus wanted to 'touch base' and 'loop him in on some thoughts' before the holidays.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "robert-11", "type": "thought", "speaker": "Robert", "text": "In person meant they liked something. In person meant there was a conversation to be had.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "robert-12", "type": "narration", "text": "He checked his phone. 7:26 PM. New Year's Eve. Outside the tinted office windows, Los Angeles was already gearing up for the kind of night where everyone pretended the changing of a number meant something had actually changed.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "robert-13", "type": "narration", "text": "He stood up. He walked to the window. Traffic on Ventura was already thickening, a river of red and white lights crawling toward wherever people went to feel like the year ending mattered.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "rising", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "robert-14", "type": "narration", "text": "He walked back. He sat down again. He picked up the art book, mostly for something to do with his hands, and let it fall open to a random page — a black-and-white photograph of a director on set, surrounded by people who were listening to him, actually listening, the way Robert imagined people might listen to him someday, if—", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "moment-slip", "type": "moment", "text": "The book slipped.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "time-pinch", "transition": "slow-fade", "audioCue": "the room narrows" },
+    { "id": "moment-slip-02", "type": "narration", "text": "It wasn't dramatic. It wasn't even really a slip — more like his hand simply forgot, for a fraction of a second, that it was holding something.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "time-pinch", "transition": "fade" },
+    { "id": "moment-slip-03", "type": "narration", "text": "The book tipped off his palm and began to fall toward the glass table, and Robert's whole body flinched in anticipation of the crash, the cracked glass, the end of whatever tiny chance he had at this meeting going well—", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "reeling", "position": "center", "intensity": 1.0 }], "fx": "time-pinch", "transition": "fade" },
+    { "id": "red-streak", "type": "moment", "text": "A streak of red light, jagged, impossibly fast — gone before he could even call it a memory.", "backdrop": "flash-red", "characters": [], "fx": "red-streak", "transition": "flash", "audioCue": "a sound that isn't a sound" },
+    { "id": "moment-stop", "type": "moment", "text": "The book stopped.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "reeling", "position": "center", "intensity": 1.0 }], "fx": "book-float", "transition": "iris", "audioCue": "silence, perfect" },
+    { "id": "moment-stop-02", "type": "narration", "text": "Six inches above the table. Just — stopped. Hanging in the air at the exact angle it had been falling, as if time itself had reached out and pinched it between two fingers.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "reeling", "position": "center", "intensity": 1.0 }], "fx": "book-float", "transition": "fade" },
+    { "id": "moment-stop-03", "type": "narration", "text": "Robert stared at it.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "book-float", "transition": "fade" },
+    { "id": "moment-stop-04", "type": "thought", "speaker": "Robert", "text": "Something in him had — shifted. Like a key turning in a lock he hadn't known was there.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "tilt-world", "transition": "fade" },
+    { "id": "moment-stop-05", "type": "narration", "text": "Robert reached out, very slowly, and closed his hand around it. The moment his fingers touched the cover, it dropped the remaining six inches into his palm with completely ordinary weight, as if it had never stopped at all.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "moment-stop-06", "type": "narration", "text": "He placed it back on the table. Exactly where it had been. At the forty-five-degree angle. His hand was shaking.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "aftermath-01", "type": "thought", "speaker": "Robert", "text": "Okay. Okay, that. That happened. That was a thing that happened.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "aftermath-02", "type": "thought", "speaker": "Robert", "text": "Hi, sorry, quick question — did you happen to see that book just float for a second? No? Totally my imagination? Great, cool, awesome, anyway about that role—", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "marcus-enters-01", "type": "narration", "text": "The door to the inner office opened. Marcus Heinz emerged, already mid-sentence into his phone, raising one finger toward Robert in the universal gesture for one more minute that Robert had learned, over six years in this city, almost always meant ten to fifteen.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "seated", "position": "left", "intensity": 0.9 }], "fx": "none", "transition": "iris", "audioCue": "door, distant phone voice" },
+    { "id": "marcus-dialog-01", "type": "dialog", "speaker": "Marcus Heinz", "text": "We've decided to go in a different direction for the role. But you were really in the room with your audition — we'll absolutely keep you in mind for future projects. Have a wonderful New Year.", "backdrop": "studio-city", "characters": [{ "id": "robert", "pose": "seated", "position": "left", "intensity": 0.85 }], "fx": "none", "transition": "slow-fade", "audioCue": "office hush" },
+    { "id": "exit-01", "type": "narration", "text": "Robert thanked him. Shook his hand. Walked out past Priya, who still didn't make eye contact, and out into the parking structure, where he sat in his car for a long time before starting the engine.", "backdrop": "sunset-window", "characters": [{ "id": "robert", "pose": "seated", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "slow-fade", "audioCue": "distant freeway" },
+    { "id": "exit-02", "type": "narration", "text": "He didn't think about the book again that night.", "backdrop": "sunset-window", "characters": [{ "id": "robert", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "section-break-01", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
+
+    { "id": "alex-01", "type": "narration", "text": "Across town, in the cramped back office of a steel scrap yard in Vernon — all corrugated metal walls and the constant distant clang of a forklift dropping things it probably shouldn't drop from that height — Alex Whitfield was doing what he did most nights: closing out the day's weigh tickets on a laptop held together with electrical tape, while a small portable TV on the shelf behind him played a basketball game nobody was really watching.", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "iris", "marker": "II.", "audioCue": "distant forklift clang" },
+    { "id": "alex-02", "type": "narration", "text": "The yard had been his father's, and before that his grandfather's, and Alex had inherited it three years ago in the unglamorous way most people inherit things — not a windfall, just a responsibility that had been waiting for him the whole time, patient as a debt.", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "alex-03", "type": "narration", "text": "Tonight had not been a good month, particularly. Copper prices were down. Alex was doing math in his head that he didn't love the answer to.", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "tense", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "alex-04", "type": "dialog", "speaker": "TV broadcast", "text": "—and that's a three-pointer for the Lakers, tying the game at—", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "alex-05", "type": "narration", "text": "Alex glanced up, mostly out of habit. He had forty dollars on the Lakers covering the spread — a small, recreational bet, the kind he placed most weeks without thinking too hard about it.", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "alex-06", "type": "narration", "text": "The ball left the shooter's hand. And something happened to Alex.", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "time-pinch", "transition": "slow-fade" },
+    { "id": "alex-07", "type": "narration", "text": "It wasn't pain, exactly. It was more like — pressure. A weight settling onto his chest and then through it, gone almost before he registered it. For one fraction of a second the whole office seemed to tilt sideways.", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "reeling", "position": "center", "intensity": 1.0 }], "fx": "tilt-world", "transition": "fade" },
+    { "id": "alex-08", "type": "moment", "text": "A streak. Red. Lightning-fast, lightning-shaped, searing across his vision from somewhere that wasn't his eyes at all.", "backdrop": "flash-red", "characters": [], "fx": "red-streak", "transition": "flash", "audioCue": "streak" },
+    { "id": "alex-09", "type": "dialog", "speaker": "Alex", "text": "Whoa — what the—", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "reeling", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "alex-10", "type": "narration", "text": "The three-pointer dropped through the net, clean. The broadcast crowd noise spiked. Lakers tied the game.", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "alex-11", "type": "narration", "text": "Alex sat back, rubbing at his sternum with the heel of his hand. He told himself it was nothing — too much coffee, a yard full of metal dust, whatever. He went back to the weigh tickets.", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "alex-12", "type": "narration", "text": "The Lakers won by six. Alex's forty dollars became forty-eight, which he didn't think twice about, and went home not long after, the red flash already fading from memory.", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "section-break-02", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
+
+    { "id": "kassidy-01", "type": "narration", "text": "In Washington, D.C., in a research facility that didn't appear on any public map and wasn't supposed to, Dr. Kassidy Chen was the only person on the entire floor.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "iris", "marker": "III.", "audioCue": "lab hum" },
+    { "id": "kassidy-02", "type": "narration", "text": "This was not unusual. Kassidy had spent every New Year's Eve for the last four years exactly like this — in Lab C, three sublevels down, surrounded by the soft hum of equipment that cost more than most people's houses, working through a problem long after everyone with anything resembling a personal life had gone home to have one.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "kassidy-03", "type": "narration", "text": "Tonight's problem was a set of anomalous readings from an orbital sensor array that, according to every model Kassidy had access to, should not have been picking up the gravitational signatures it was picking up.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "data-stream", "transition": "fade" },
+    { "id": "kassidy-04", "type": "narration", "text": "She sat at her workstation, three monitors arranged in a shallow arc around her, each one displaying a different slice of the same impossible numbers. Her coffee — her fourth of the night, in a mug that said WORLD'S OKAYEST SCIENTIST — had gone cold an hour ago. She hadn't noticed.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "kassidy-05", "type": "dialog", "speaker": "Kassidy", "text": "Okay. Okay, if the array's miscalibrated, the error should be consistent across all three—", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "kassidy-06", "type": "narration", "text": "The lab lights flickered. Not dramatically. Just a half-second stutter, the kind of thing that happens in old buildings with old wiring, except this building's wiring was not old.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "tilt-world", "transition": "fade" },
+    { "id": "kassidy-07", "type": "moment", "text": "A streak of red crossed her vision. Just for an instant. Faster than anything had any right to be.", "backdrop": "flash-red", "characters": [], "fx": "red-streak", "transition": "flash", "audioCue": "streak" },
+    { "id": "kassidy-08", "type": "narration", "text": "Kassidy went very still. She did not gasp. She did not flinch. What Kassidy did was catalogue — a reflex so deeply trained into her by a decade of careful, methodical work that it operated faster than fear.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "kassidy-09", "type": "narration", "text": "She noted: the time (10:00:00 PM EST). The duration (less than one second). The location (everywhere and nowhere — it hadn't come from a direction, hadn't had a source).", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "kassidy-10", "type": "narration", "text": "And then she noted something else. Something that made the hair on her arms stand up. The monitors in front of her had changed.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "data-stream", "transition": "fade" },
+    { "id": "kassidy-11", "type": "narration", "text": "The comparison she had just started — the one she'd been three keystrokes into — was finished. Completed. Not just completed, but completed correctly, the kind of cross-reference that should have taken her the better part of an hour.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "data-stream", "transition": "fade" },
+    { "id": "kassidy-12", "type": "thought", "speaker": "Kassidy", "text": "She hadn't done that. Had she?", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "kassidy-13", "type": "dialog", "speaker": "Kassidy", "text": "That's not — that's not possible.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "kassidy-14", "type": "narration", "text": "She saved the file. Created a backup. Created a second backup, because old habits. And then she sat very still for almost five full minutes, replaying the last sixty seconds in her mind.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "seated", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "kassidy-15", "type": "narration", "text": "She did not call anyone. She did not panic. She did not even, really, get scared. What Kassidy Chen felt was something closer to the feeling she got at the exact moment before a breakthrough.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "kassidy-16", "type": "narration", "text": "She opened a new file. Titled it, after a moment's thought, simply: ANOMALY — DEC 31. And then she started writing down everything she could remember, in precise, careful detail, the way she had been trained to do for fifteen years.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "section-break-03", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
+
+    { "id": "sam-01", "type": "narration", "text": "In a quiet workshop above a jewelry store in Scottsdale, Arizona — an hour behind LA, which meant it was 9:00 PM here, though Sam Patel had stopped paying attention to clocks hours ago — a small lamp illuminated a workbench covered in tools so fine they looked like surgical instruments.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "iris", "marker": "IV.", "audioCue": "workshop lamp" },
+    { "id": "sam-02", "type": "narration", "text": "Sam sat hunched over the bench, a loupe pressed to one eye, holding a half-finished pendant between tweezers with the kind of stillness that came from years of practice. The piece was a commission — an anniversary gift, twenty-five years, make it special.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "tense", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "sam-03", "type": "narration", "text": "It was close. It was so close. The prongs needed to sit just slightly differently, just a fraction of a millimeter, to catch the light the way Sam had pictured it in his head days ago.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "reaching", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "sam-04", "type": "narration", "text": "He adjusted the angle of the tweezers. Breathed out, slow, the way he always did before the final, most delicate movements—", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "time-pinch", "transition": "slow-fade" },
+    { "id": "sam-05", "type": "moment", "text": "And the world flashed.", "backdrop": "flash-red", "characters": [], "fx": "red-streak", "transition": "flash", "audioCue": "streak" },
+    { "id": "sam-06", "type": "narration", "text": "Red — bright, fast, impossibly fast, there and gone in less time than a heartbeat — and for that fraction of a second Sam's hand, the steadiest hand in three counties according to his uncle, jerked.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "reeling", "position": "center", "intensity": 1.0 }], "fx": "tilt-world", "transition": "fade" },
+    { "id": "sam-07", "type": "narration", "text": "The tweezers were holding a sapphire worth more than Sam made in a month, and the prong he'd been so carefully, so patiently adjusting— bent. Wrong. Badly wrong.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "reeling", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "sam-08", "type": "dialog", "speaker": "Sam", "text": "No — no, no, no, no—", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "reeling", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "sam-09", "type": "narration", "text": "His fingers closed around the pendant. And something happened that Sam would spend the next several days trying, and failing, to properly explain to himself.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "metal-reshape", "transition": "slow-fade", "audioCue": "metal shimmer" },
+    { "id": "sam-10", "type": "narration", "text": "He felt the metal. Not the way you feel metal when you touch it — but the way you feel a held breath, or a coiled spring. He felt the shape of it, the wrongness of the bent prong — and underneath that, impossibly, he felt the structure it was supposed to have.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "metal-reshape", "transition": "fade" },
+    { "id": "sam-11", "type": "narration", "text": "Without deciding to — without, in any way he could later describe, choosing to — Sam's hand moved. It took less than a second.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "metal-reshape", "transition": "fade" },
+    { "id": "sam-12", "type": "narration", "text": "When Sam opened his eyes — he hadn't realized he'd closed them — the pendant sat in his palm. Whole. Perfect. The prong exactly where it was supposed to be, every facet catching the lamplight exactly the way he'd pictured it in his head. Better, even. Better than he'd pictured it.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "sam-13", "type": "narration", "text": "Downstairs, the television crowd counted down — five, four, three — and somewhere outside, the first fireworks of the new year began to pop and crackle over the desert. Sam didn't hear them.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "sam-14", "type": "thought", "speaker": "Sam", "text": "I didn't do that. …Did I?", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "sam-15", "type": "narration", "text": "He told himself, in the days that followed, that he'd imagined the bend. That the flash of light had been a momentary dizziness, nothing more. He almost believed it.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "sam-16", "type": "narration", "text": "It was the third piece — a ring, a simple solitaire setting — that made it impossible to keep telling himself that. There was no flinch, no flash of light. Sam simply sat down to work and found that his hands knew things they had not known three days ago.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "reaching", "position": "center", "intensity": 0.95 }], "fx": "metal-reshape", "transition": "fade" },
+    { "id": "sam-17", "type": "narration", "text": "The metal felt different under his fingers — readable, somehow, like text in a language he'd always almost understood and had suddenly, overnight, become fluent in.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "reaching", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "sam-18", "type": "narration", "text": "He thought, too — though he pushed this thought away, hard, the moment it surfaced — about Chloe. He thought about the closet in his apartment that he still hadn't opened.", "backdrop": "apartment-dark", "characters": [{ "id": "sam", "pose": "tense", "position": "center", "intensity": 0.85 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "sam-19", "type": "narration", "text": "He didn't tell anyone what had happened. He went home that night the same way he went home every night — alone, to a small apartment that still had too much space in it.", "backdrop": "apartment-dark", "characters": [{ "id": "sam", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "sam-20", "type": "narration", "text": "He had no idea, sitting in the dark of his apartment that first night of 2027, that across the country, three other people had felt exactly the same red flash he had.", "backdrop": "apartment-dark", "characters": [{ "id": "sam", "pose": "seated", "position": "center", "intensity": 0.85 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "section-break-04", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
+
+    { "id": "jan-01", "type": "narration", "text": "The rest of January passed, for all four of them, the way January tends to: a little anticlimactic, the new year stubbornly resembling the old one in almost every way that mattered.", "backdrop": "sunset-window", "characters": [], "fx": "none", "transition": "slow-fade", "marker": "V." },
+    { "id": "jan-02", "type": "narration", "text": "Robert went on three more auditions and got none of them. One night, lying awake at two in the morning replaying the meeting with Marcus Heinz for the hundredth time, he found himself thinking, instead, about the book.", "backdrop": "apartment-dark", "characters": [{ "id": "robert", "pose": "tense", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "jan-03", "type": "narration", "text": "He got out of bed. Walked into the kitchen of his cramped one-bedroom in North Hollywood. Stood there in the dark for a long moment, looking at the small pile of mail he hadn't opened. There was an empty water glass beside the mail. Robert looked at it.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "rising", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "jan-04", "type": "thought", "speaker": "Robert", "text": "This is insane. This is the most insane thing I have ever—", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "jan-05", "type": "narration", "text": "He reached toward the glass. Not to touch it. Just — reached, the way you'd reach for something with your mind, if minds could reach—", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "glass-slide", "transition": "slow-fade", "audioCue": "glass slide" },
+    { "id": "jan-06", "type": "moment", "text": "The glass slid four inches to the left.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "reeling", "position": "center", "intensity": 1.0 }], "fx": "glass-slide", "transition": "fade" },
+    { "id": "jan-07", "type": "narration", "text": "Robert snatched his hand back like he'd been burned. The glass sat there. Four inches from where it had been. He didn't sleep again that night.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "reeling", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "jan-08", "type": "narration", "text": "By morning, he had moved seventeen different objects around his apartment — a fork, a stack of unpaid bills, the TV remote, his own car keys from across the room. Every single one of them had responded. Slid. Lifted. Floated, briefly, hovering for a second or two in the gray morning light before drifting gently back down.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "jan-09", "type": "thought", "speaker": "Robert", "text": "I have to tell Alex.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "rising", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "section-break-05", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
+
+    { "id": "alex-jan-01", "type": "narration", "text": "Alex, for his part, had spent the last few weeks of January in a state of mounting, increasingly specific confusion. It had started small. A linebacker on TV he'd been silently rooting for had caught a scrambling quarterback who, the announcer noted, had been having an excellent game — until his legs suddenly looked slow. Sluggish.", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "tense", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "iris" },
+    { "id": "alex-jan-02", "type": "narration", "text": "Walking back to the yard from a late lunch, Alex saw three older kids pressing a younger one against a fence outside the elementary school. He'd felt something in his chest — hot and immediate and furious. He'd thought, clear as anything: somebody needs to do something about these kids.", "backdrop": "la-alley", "characters": [{ "id": "alex", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "alex-jan-03", "type": "dialog", "speaker": "Alex", "text": "Hey. Give it back.", "backdrop": "la-alley", "characters": [{ "id": "alex", "pose": "rising", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "alex-jan-04", "type": "narration", "text": "The biggest of the three kids shoved him — hard, both hands flat against Alex's chest. Alex didn't move an inch. The kid, on the other hand, staggered backward like he'd run into a wall instead of a person — and then kept staggering, his legs suddenly unsteady, his face going slack and gray.", "backdrop": "la-alley", "characters": [{ "id": "alex", "pose": "rising", "position": "center", "intensity": 1.0 }], "fx": "energy-transfer", "transition": "slow-fade", "audioCue": "transfer zap" },
+    { "id": "alex-jan-05", "type": "narration", "text": "He sat down hard on the curb, blinking, looking at his own hands like he'd never seen them before. The other two kids didn't wait around to figure out what had happened.", "backdrop": "la-alley", "characters": [{ "id": "alex", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "alex-jan-06", "type": "thought", "speaker": "Alex", "text": "That's not normal. He pushed me, and he just — he just stopped. Like someone unplugged him.", "backdrop": "la-alley", "characters": [{ "id": "alex", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "alex-jan-07", "type": "narration", "text": "The proof came on January 25th, on the 110, in the worst possible way. Alex clipped a car ahead of him at maybe fifteen miles an hour. The other driver got out — big guy, already red in the face — shoved him square in the chest.", "backdrop": "la-freeway", "characters": [{ "id": "alex", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "iris", "audioCue": "distant freeway" },
+    { "id": "alex-jan-08", "type": "narration", "text": "The guy's hands hit his chest, and the guy's face went, in the space of a single heartbeat, from furious to confused to something that looked almost like panic. His knees buckled. He grabbed the frame of Alex's car to stay upright.", "backdrop": "la-freeway", "characters": [{ "id": "alex", "pose": "rising", "position": "center", "intensity": 1.0 }], "fx": "energy-transfer", "transition": "slow-fade", "audioCue": "transfer zap" },
+    { "id": "alex-jan-09", "type": "thought", "speaker": "Alex", "text": "It's not luck. It's not strength. It's — it's both, and it's neither. I can take things. From people. And I can give them. To other people. Or — to myself, maybe, sometimes, I don't — I don't know the rules yet, but—", "backdrop": "la-freeway", "characters": [{ "id": "alex", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "alex-jan-10", "type": "narration", "text": "He was still turning it over in his head when his phone buzzed with a text from a number he hadn't heard from in almost a year.", "backdrop": "la-freeway", "characters": [{ "id": "alex", "pose": "tense", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "alex-jan-11", "type": "dialog", "speaker": "Robert (text)", "text": "hey man. weird question. you free tonight? need to talk to u about something and i know this is gonna sound insane but please just. hear me out", "backdrop": "la-freeway", "characters": [{ "id": "alex", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "alex-jan-12", "type": "dialog", "speaker": "Alex (text)", "text": "yeah man come over. i actually. might have something to tell u too", "backdrop": "la-freeway", "characters": [{ "id": "alex", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "section-break-06", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
+
+    { "id": "kitchen-01", "type": "narration", "text": "They sat across from each other at Alex's kitchen table — the same table, the same apartment, where they'd spent half of college pulling all-nighters before exams.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "seated", "position": "left", "intensity": 0.95 }, { "id": "alex", "pose": "seated", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "iris", "audioCue": "office hush" },
+    { "id": "kitchen-02", "type": "dialog", "speaker": "Robert", "text": "Okay. Okay, I'm just gonna — I'm gonna show you something, and you have to promise not to think I've lost it. Or — or if you do think I've lost it, just. Don't leave. Okay?", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "tense", "position": "left", "intensity": 1.0 }, { "id": "alex", "pose": "seated", "position": "right", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "kitchen-03", "type": "dialog", "speaker": "Alex", "text": "Bro, I watched you do a Werner Herzog impression for forty-five minutes once. I'm not gonna judge you for anything ever again.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "tense", "position": "left", "intensity": 0.9 }, { "id": "alex", "pose": "idle", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "kitchen-04", "type": "dialog", "speaker": "Robert", "text": "Okay. Okay, just. Watch the salt shaker.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "reaching", "position": "left", "intensity": 1.0 }, { "id": "alex", "pose": "tense", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "kitchen-05", "type": "moment", "text": "The salt shaker slid six inches across the table, smooth and silent, and stopped directly in front of Alex.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "reaching", "position": "left", "intensity": 1.0 }, { "id": "alex", "pose": "reeling", "position": "right", "intensity": 1.0 }], "fx": "glass-slide", "transition": "fade", "audioCue": "glass slide" },
+    { "id": "kitchen-06", "type": "dialog", "speaker": "Alex", "text": "Okay. Okay, so — that's. That's a thing that just happened.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "tense", "position": "left", "intensity": 0.95 }, { "id": "alex", "pose": "tense", "position": "right", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "kitchen-07", "type": "dialog", "speaker": "Robert", "text": "Yeah. It started a few weeks ago, New Year's, there was this — did you see anything weird on New Year's? Like a flash, or—", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "tense", "position": "left", "intensity": 0.95 }, { "id": "alex", "pose": "tense", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "kitchen-08", "type": "dialog", "speaker": "Alex", "text": "Red. Like — lightning, almost. Just for like, half a second.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "reeling", "position": "left", "intensity": 1.0 }, { "id": "alex", "pose": "tense", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "kitchen-09", "type": "dialog", "speaker": "Alex", "text": "Rob, I think I can take things. From people. And give them somewhere else. Give me your hand.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "reaching", "position": "left", "intensity": 1.0 }, { "id": "alex", "pose": "reaching", "position": "right", "intensity": 1.0 }], "fx": "energy-transfer", "transition": "slow-fade", "audioCue": "transfer zap" },
+    { "id": "kitchen-10", "type": "narration", "text": "Robert's hand twitched in his. Alex took it, closed his eyes, concentrated — gently, deliberately, in the smallest possible way he could manage, giving instead of taking.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "reeling", "position": "left", "intensity": 1.0 }, { "id": "alex", "pose": "reaching", "position": "right", "intensity": 1.0 }], "fx": "energy-transfer", "transition": "fade" },
+    { "id": "kitchen-11", "type": "dialog", "speaker": "Robert", "text": "Whoa — okay, that — my hand feels — it feels kind of buzzy, what did you—", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "tense", "position": "left", "intensity": 0.95 }, { "id": "alex", "pose": "tense", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "kitchen-12", "type": "narration", "text": "Robert pulled out his phone, opened his photos, scrolled back to New Year's Eve. The timestamp in the corner read 7:00:03 PM PST.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "tense", "position": "left", "intensity": 0.95 }, { "id": "alex", "pose": "tense", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "kitchen-13", "type": "dialog", "speaker": "Alex", "text": "Ten PM Eastern.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "tense", "position": "left", "intensity": 1.0 }, { "id": "alex", "pose": "tense", "position": "right", "intensity": 1.0 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "kitchen-14", "type": "dialog", "speaker": "Robert", "text": "I have absolutely no idea. But I think we should probably figure it out together. Because honestly, man — I think I'd rather not be the only person on Earth who can do this.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "tense", "position": "left", "intensity": 0.95 }, { "id": "alex", "pose": "idle", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "kitchen-15", "type": "dialog", "speaker": "Alex", "text": "Yeah. Together's good.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "idle", "position": "left", "intensity": 0.9 }, { "id": "alex", "pose": "idle", "position": "right", "intensity": 0.9 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "section-break-07", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
+
+    { "id": "kassidy-find-01", "type": "narration", "text": "It took Kassidy Chen until the middle of February to find them.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "data-stream", "transition": "iris", "marker": "VI." },
+    { "id": "kassidy-find-02", "type": "narration", "text": "In six weeks, she had built a custom data-scraping tool that monitored regional news outlets and statistical anomalies of every kind; cross-referenced every flagged incident against weather patterns, electromagnetic readings, and seismic data; and — as a control case — begun pulling publicly available sportsbook data, looking for betting patterns that defied probability.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "data-stream", "transition": "fade" },
+    { "id": "kassidy-find-03", "type": "narration", "text": "The account had existed for years — small, unremarkable. Since January 1st, the account had not lost once. Eleven straight wins. The probability of an eleven-game streak like this, given the account's own historical baseline, came out somewhere below one in two hundred thousand.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "data-stream", "transition": "fade" },
+    { "id": "kassidy-find-04", "type": "narration", "text": "WHITFIELD, ALEXANDER J. — 26 — Los Angeles, CA. Employed: Westgate Metal Recovery, Vernon, CA.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "data-stream", "transition": "slow-fade" },
+    { "id": "kassidy-find-05", "type": "thought", "speaker": "Kassidy", "text": "December 31st. Ten PM Eastern. Whatever happened — happened to him too.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "kassidy-find-06", "type": "narration", "text": "She booked a flight to Los Angeles for the following weekend. She found him at the yard on a Saturday afternoon, in the middle of explaining to a customer why the noise his car was making was 'not actually a big deal, sir, but I'd still get it looked at before it becomes one.'", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "idle", "position": "right", "intensity": 0.9 }, { "id": "kassidy", "pose": "idle", "position": "left", "intensity": 0.9 }], "fx": "none", "transition": "iris" },
+    { "id": "kassidy-find-07", "type": "dialog", "speaker": "Kassidy", "text": "You've won eleven straight sports bets since January 1st. The probability of that happening by chance is somewhere around one in two hundred thousand.", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "reeling", "position": "right", "intensity": 1.0 }, { "id": "kassidy", "pose": "tense", "position": "left", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "kassidy-find-08", "type": "dialog", "speaker": "Kassidy", "text": "I'm a research scientist, and on December 31st at exactly ten PM Eastern, I experienced an event I currently can't explain, and based on the timing — and on what just happened to your face, frankly — I believe you experienced the same event.", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "tense", "position": "right", "intensity": 1.0 }, { "id": "kassidy", "pose": "tense", "position": "left", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "kassidy-find-09", "type": "dialog", "speaker": "Alex", "text": "…Okay. Okay, who are you?", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "tense", "position": "right", "intensity": 0.95 }, { "id": "kassidy", "pose": "idle", "position": "left", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "kassidy-find-10", "type": "dialog", "speaker": "Kassidy", "text": "Dr. Kassidy Chen.", "backdrop": "vernon-yard", "characters": [{ "id": "alex", "pose": "idle", "position": "right", "intensity": 0.9 }, { "id": "kassidy", "pose": "idle", "position": "left", "intensity": 0.95 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "section-break-08", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
+
+    { "id": "team-01", "type": "narration", "text": "It was Kassidy's framework — the rest of them just filled it in.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "seated", "position": "left", "intensity": 0.9 }, { "id": "alex", "pose": "seated", "position": "center", "intensity": 0.9 }, { "id": "kassidy", "pose": "tense", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "iris", "marker": "VII." },
+    { "id": "team-02", "type": "dialog", "speaker": "Kassidy", "text": "If this happened to the three of us, at the exact same moment, regardless of time zone — then statistically, it almost certainly happened to other people too. The question is how many, and where, and — and why.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "seated", "position": "left", "intensity": 0.9 }, { "id": "alex", "pose": "seated", "position": "center", "intensity": 0.9 }, { "id": "kassidy", "pose": "reaching", "position": "right", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "team-03", "type": "dialog", "speaker": "Robert", "text": "Why's the scary one.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "tense", "position": "left", "intensity": 0.95 }, { "id": "alex", "pose": "idle", "position": "center", "intensity": 0.9 }, { "id": "kassidy", "pose": "tense", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "team-04", "type": "dialog", "speaker": "Kassidy", "text": "Why's the interesting one.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "idle", "position": "left", "intensity": 0.9 }, { "id": "alex", "pose": "idle", "position": "center", "intensity": 0.9 }, { "id": "kassidy", "pose": "idle", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "team-05", "type": "narration", "text": "It was early March. Alex was walking home from the shop when he heard, from an alley two blocks ahead, the unmistakable sound of a struggle. A woman's voice, sharp with fear. The clatter of something metal hitting concrete. Alex didn't think. He ran.", "backdrop": "la-alley", "characters": [{ "id": "alex", "pose": "rising", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "iris", "audioCue": "distant traffic" },
+    { "id": "team-06", "type": "narration", "text": "A woman backed against a dumpster. A man with a knife held low and loose in one hand, the posture of someone who'd done this before.", "backdrop": "la-alley", "characters": [{ "id": "alex", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "team-07", "type": "dialog", "speaker": "Alex", "text": "Hey.", "backdrop": "la-alley", "characters": [{ "id": "alex", "pose": "rising", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "team-08", "type": "narration", "text": "It was over in under two seconds. Alex caught the man's knife arm at the wrist, and the moment his hand closed around it, he felt that same strange transferal — like pulling a plug from a socket. The knife clattered to the ground.", "backdrop": "la-alley", "characters": [{ "id": "alex", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "energy-transfer", "transition": "slow-fade", "audioCue": "transfer zap" },
+    { "id": "team-09", "type": "narration", "text": "A few nights later, Robert — three blocks from his own apartment, on his way home from yet another audition that had gone nowhere — used his powers for the first time in a way that wasn't just moving salt shakers across a kitchen table.", "backdrop": "la-freeway", "characters": [{ "id": "robert", "pose": "idle", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "iris" },
+    { "id": "team-10", "type": "narration", "text": "A delivery van, brakes failing on a downhill grade, drifted toward a crowded crosswalk where a mother was crossing with a stroller, oblivious, headphones in.", "backdrop": "la-freeway", "characters": [{ "id": "robert", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "time-pinch", "transition": "fade", "audioCue": "the room narrows" },
+    { "id": "team-11", "type": "narration", "text": "Robert didn't think. He reached out — the same reaching he'd practiced a hundred times now on glasses and books and car keys — and the van slowed. Not stopped, not instantly, but slowed, enough, just enough, for the mother to glance up, see it, and yank the stroller back onto the curb a half-second before the van rolled harmlessly past.", "backdrop": "la-freeway", "characters": [{ "id": "robert", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "glass-slide", "transition": "slow-fade" },
+    { "id": "team-12", "type": "narration", "text": "He stood on the sidewalk afterward, breathing hard, and felt something he hadn't felt in a long, long time. He felt useful.", "backdrop": "sunset-window", "characters": [{ "id": "robert", "pose": "idle", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "section-break-09", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
+
+    { "id": "sam-find-01", "type": "narration", "text": "The fourth member of the team didn't find them. He found out about them — through, of all things, a dashcam clip that had resurfaced on a different forum: that 'bro built different' guy from January — turns out there's a WHOLE GROUP of them now??", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "iris", "marker": "VIII." },
+    { "id": "sam-find-02", "type": "narration", "text": "Sam Patel watched that blurry, inconclusive footage four times in a row, and felt his stomach drop. He recognized the shape of it. The slowing. The gentle, impossible correction.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "sam-find-03", "type": "thought", "speaker": "Sam", "text": "There are others.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "rising", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "sam-find-04", "type": "narration", "text": "Sam sat with that thought for days. He thought about the pendant. The ring. The slow, quiet, almost meditative way his work had transformed. A piece he'd made in February had been picked up by a boutique in Scottsdale's art district and was now selling for four times what anything in the shop had ever sold for before.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "metal-reshape", "transition": "fade" },
+    { "id": "sam-find-05", "type": "narration", "text": "He thought, too, about Chloe. About the closet in his apartment that he still hadn't opened.", "backdrop": "apartment-dark", "characters": [{ "id": "sam", "pose": "tense", "position": "center", "intensity": 0.85 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "sam-find-06", "type": "narration", "text": "Late one night, sitting at his workbench with his laptop open and the blurry footage paused on his screen, Sam Patel did something he had not done in three years. He reached out to someone.", "backdrop": "scottsdale-shop", "characters": [{ "id": "sam", "pose": "reaching", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "sam-find-07", "type": "narration", "text": "Alexander Whitfield. Westgate Metal Recovery, Vernon, California. In the last days of March, he finally got in his car.", "backdrop": "ohio-night", "characters": [{ "id": "sam", "pose": "seated", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "slow-fade", "audioCue": "distant freeway" },
+    { "id": "sam-find-08", "type": "narration", "text": "He arrived at the yard a little after two in the afternoon, and stood outside the gate for almost ten minutes before he worked up the nerve to go in.", "backdrop": "vernon-yard", "characters": [{ "id": "sam", "pose": "tense", "position": "left", "intensity": 0.95 }, { "id": "alex", "pose": "idle", "position": "right", "intensity": 0.9 }], "fx": "none", "transition": "iris" },
+    { "id": "sam-find-09", "type": "dialog", "speaker": "Alex", "text": "Hey. You good, man? You been standing there a minute.", "backdrop": "vernon-yard", "characters": [{ "id": "sam", "pose": "tense", "position": "left", "intensity": 0.95 }, { "id": "alex", "pose": "idle", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "sam-find-10", "type": "dialog", "speaker": "Sam", "text": "Are you Alexander Whitfield?", "backdrop": "vernon-yard", "characters": [{ "id": "sam", "pose": "tense", "position": "left", "intensity": 0.95 }, { "id": "alex", "pose": "tense", "position": "right", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "sam-find-11", "type": "dialog", "speaker": "Sam", "text": "On New Year's Eve, at ten PM Eastern Time — there was a flash. Red. About half a second. And after that, you could do things you couldn't do before.", "backdrop": "vernon-yard", "characters": [{ "id": "sam", "pose": "tense", "position": "left", "intensity": 1.0 }, { "id": "alex", "pose": "reeling", "position": "right", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "sam-find-12", "type": "dialog", "speaker": "Sam", "text": "My name is Sam Patel. I'm from Arizona. And I think the same thing happened to me.", "backdrop": "vernon-yard", "characters": [{ "id": "sam", "pose": "rising", "position": "left", "intensity": 1.0 }, { "id": "alex", "pose": "tense", "position": "right", "intensity": 1.0 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "section-break-10", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
+
+    { "id": "four-01", "type": "narration", "text": "Kassidy's reaction to Sam, when Alex brought him to the apartment that evening, was — predictably — less about him, and more about what he represented.", "backdrop": "alex-kitchen", "characters": [{ "id": "sam", "pose": "seated", "position": "left", "intensity": 0.9 }, { "id": "robert", "pose": "idle", "position": "center", "intensity": 0.9 }, { "id": "kassidy", "pose": "reaching", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "iris", "marker": "IX." },
+    { "id": "four-02", "type": "dialog", "speaker": "Kassidy", "text": "Arizona. That's — okay, that's good, actually, that's very good, because if this is geographically random— Sorry. Hi. I'm Kassidy. What can you do?", "backdrop": "alex-kitchen", "characters": [{ "id": "sam", "pose": "tense", "position": "left", "intensity": 0.95 }, { "id": "robert", "pose": "idle", "position": "center", "intensity": 0.9 }, { "id": "kassidy", "pose": "reaching", "position": "right", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "four-03", "type": "dialog", "speaker": "Sam", "text": "I work with metal. Jewelry. And since New Year's, I can… I don't know how to explain it. I can feel the structure of things. Atoms, I guess — though that sounds insane when I say it out loud—", "backdrop": "alex-kitchen", "characters": [{ "id": "sam", "pose": "tense", "position": "left", "intensity": 0.95 }, { "id": "robert", "pose": "tense", "position": "center", "intensity": 0.9 }, { "id": "kassidy", "pose": "tense", "position": "right", "intensity": 0.95 }], "fx": "metal-reshape", "transition": "fade", "audioCue": "metal shimmer" },
+    { "id": "four-04", "type": "dialog", "speaker": "Kassidy", "text": "It does not sound insane. Continue.", "backdrop": "alex-kitchen", "characters": [{ "id": "sam", "pose": "tense", "position": "left", "intensity": 0.95 }, { "id": "robert", "pose": "idle", "position": "center", "intensity": 0.9 }, { "id": "kassidy", "pose": "reaching", "position": "right", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "four-05", "type": "dialog", "speaker": "Sam", "text": "I made a ring in forty minutes that should've taken me a full day, and it was better than anything I'd made before. Cleaner. Like the metal just… told me what it wanted to be.", "backdrop": "alex-kitchen", "characters": [{ "id": "sam", "pose": "reaching", "position": "left", "intensity": 1.0 }, { "id": "robert", "pose": "idle", "position": "center", "intensity": 0.9 }, { "id": "kassidy", "pose": "tense", "position": "right", "intensity": 0.95 }], "fx": "metal-reshape", "transition": "fade" },
+    { "id": "four-06", "type": "dialog", "speaker": "Robert", "text": "That's incredible.", "backdrop": "alex-kitchen", "characters": [{ "id": "sam", "pose": "tense", "position": "left", "intensity": 0.95 }, { "id": "robert", "pose": "idle", "position": "center", "intensity": 0.95 }, { "id": "kassidy", "pose": "idle", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "four-07", "type": "dialog", "speaker": "Sam", "text": "It's terrifying. I didn't tell anyone. For months. I just — kept working. Kept getting better. And then I saw the footage of you — and of you — and I realized I wasn't the only one. And I thought maybe I could be doing something with this. Instead of just… making jewelry.", "backdrop": "alex-kitchen", "characters": [{ "id": "sam", "pose": "tense", "position": "left", "intensity": 1.0 }, { "id": "robert", "pose": "idle", "position": "center", "intensity": 0.9 }, { "id": "kassidy", "pose": "tense", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "four-08", "type": "dialog", "speaker": "Kassidy", "text": "Welcome to the team, Sam.", "backdrop": "alex-kitchen", "characters": [{ "id": "sam", "pose": "idle", "position": "left", "intensity": 0.95 }, { "id": "robert", "pose": "idle", "position": "center", "intensity": 0.9 }, { "id": "kassidy", "pose": "idle", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "section-break-11", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
+
+    { "id": "farrukh-01", "type": "narration", "text": "It started with a message. Kassidy was the one who found it — or rather, it found her, in the loosely-monitored inbox attached to an old academic profile she'd half-forgotten existed.", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "data-stream", "transition": "iris", "marker": "X." },
+    { "id": "farrukh-02", "type": "dialog", "speaker": "anonymous email — 'f'", "text": "hi — i know this is going to sound completely insane and i'm sorry in advance, but i think you might be looking for something, and i think i might be it. on dec 31st at 10pm eastern something happened to me that i can't explain and i've been trying to figure out for months who else it might have happened to. — f", "backdrop": "dc-lab", "characters": [{ "id": "kassidy", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "data-stream", "transition": "fade" },
+    { "id": "farrukh-03", "type": "narration", "text": "They arranged to meet in the first week of April — Los Angeles, at Alex's apartment, because by now that was simply where things like this happened.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "seated", "position": "left", "intensity": 0.85 }, { "id": "alex", "pose": "idle", "position": "center", "intensity": 0.9 }, { "id": "kassidy", "pose": "seated", "position": "right", "intensity": 0.9 }], "fx": "none", "transition": "iris" },
+    { "id": "farrukh-04", "type": "narration", "text": "The man who knocked on Alex's door that evening was, in almost every visible respect, the least ominous person any of them had ever met.", "backdrop": "alex-kitchen", "characters": [{ "id": "farrukh", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "farrukh-05", "type": "dialog", "speaker": "Farrukh", "text": "Hi. Okay. So — I'm the one who emailed. Hi.", "backdrop": "alex-kitchen", "characters": [{ "id": "farrukh", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "farrukh-06", "type": "dialog", "speaker": "Alex", "text": "Hi. Come in, man.", "backdrop": "alex-kitchen", "characters": [{ "id": "farrukh", "pose": "idle", "position": "left", "intensity": 0.9 }, { "id": "alex", "pose": "idle", "position": "right", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "farrukh-07", "type": "dialog", "speaker": "Farrukh", "text": "My name's Farrukh. I drove from Ohio. Mansfield, Ohio, it's — it's about thirty-five hours round trip, which, in retrospect, maybe I should've just, like, flown, but I didn't really think it through, I just sort of — got in the car.", "backdrop": "alex-kitchen", "characters": [{ "id": "farrukh", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "farrukh-08", "type": "dialog", "speaker": "Sam", "text": "You drove thirty-five hours based on one email.", "backdrop": "alex-kitchen", "characters": [{ "id": "farrukh", "pose": "tense", "position": "left", "intensity": 0.9 }, { "id": "sam", "pose": "tense", "position": "right", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "farrukh-09", "type": "dialog", "speaker": "Farrukh", "text": "I drove thirty-five hours based on four months of talking to ants. The email was just the part where I finally did something about it.", "backdrop": "alex-kitchen", "characters": [{ "id": "farrukh", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "ant-trail", "transition": "slow-fade" },
+    { "id": "farrukh-10", "type": "dialog", "speaker": "Robert", "text": "Sorry. You've spent the last few months what?", "backdrop": "alex-kitchen", "characters": [{ "id": "farrukh", "pose": "tense", "position": "left", "intensity": 0.9 }, { "id": "robert", "pose": "tense", "position": "right", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "farrukh-11", "type": "dialog", "speaker": "Farrukh", "text": "Talking to ants. Look — I see this ant on my kitchen counter. Just — one ant, doing ant stuff. And I look at it, and I think — and I swear to god I don't know where this thought came from — I think, come here.", "backdrop": "alex-kitchen", "characters": [{ "id": "farrukh", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "ant-trail", "transition": "fade" },
+    { "id": "farrukh-12", "type": "dialog", "speaker": "Farrukh", "text": "And it came here. It just — turned around, and walked over, and stopped right in front of me. Like it was listening.", "backdrop": "alex-kitchen", "characters": [{ "id": "farrukh", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "ant-trail", "transition": "fade" },
+    { "id": "farrukh-13", "type": "dialog", "speaker": "Farrukh", "text": "Every single day, there's exactly one ant, and I can communicate with it, and we sort of… hang out, I guess, until it's gone and there's a new one. I've started naming them. I know that's insane. I'm aware that's insane.", "backdrop": "alex-kitchen", "characters": [{ "id": "farrukh", "pose": "idle", "position": "center", "intensity": 0.95 }], "fx": "ant-trail", "transition": "slow-fade" },
+    { "id": "farrukh-14", "type": "dialog", "speaker": "Farrukh", "text": "I mean — you guys can lift cars, and stop crashes, and reshape metal with your bare hands, and I'm — I talk to bugs. One bug. A day.", "backdrop": "alex-kitchen", "characters": [{ "id": "farrukh", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "farrukh-15", "type": "dialog", "speaker": "Alex", "text": "Hey. For what it's worth — man, you talk to ants. That's objectively the coolest thing I've ever heard, and I once watched a guy lift a car, so that's a high bar.", "backdrop": "alex-kitchen", "characters": [{ "id": "farrukh", "pose": "idle", "position": "left", "intensity": 0.9 }, { "id": "alex", "pose": "idle", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "farrukh-16", "type": "dialog", "speaker": "Kassidy", "text": "For now, I think it makes sense for you to stick with us — observe what we're doing, help us understand the broader picture, and in the meantime, we keep an eye on what your ability does. There's no rush.", "backdrop": "alex-kitchen", "characters": [{ "id": "farrukh", "pose": "idle", "position": "left", "intensity": 0.9 }, { "id": "kassidy", "pose": "idle", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "section-break-12", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
+
+    { "id": "fire-01", "type": "narration", "text": "The five of them did their first job together a few days later — a warehouse fire, in an industrial stretch near the LA river, with two workers still inside who hadn't made it out before the smoke got too thick to see through.", "backdrop": "warehouse-fire", "characters": [], "fx": "none", "transition": "iris", "marker": "XI.", "audioCue": "fire crackle" },
+    { "id": "fire-02", "type": "narration", "text": "Alex went in first — strength enough to tear a jammed loading door clean off its frame, smoke be damned.", "backdrop": "warehouse-fire", "characters": [{ "id": "alex", "pose": "rising", "position": "center", "intensity": 1.0 }], "fx": "energy-transfer", "transition": "fade" },
+    { "id": "fire-03", "type": "narration", "text": "Robert, from outside, used his abilities the way he'd started to, lately, almost without thinking: a careful, invisible nudge on the air itself, pushing the worst of the smoke away from the door Alex had opened.", "backdrop": "warehouse-fire", "characters": [{ "id": "robert", "pose": "reaching", "position": "left", "intensity": 1.0 }], "fx": "glass-slide", "transition": "fade" },
+    { "id": "fire-04", "type": "narration", "text": "Sam found, to his own quiet astonishment, that he could feel the structure of the burning pallets the same way he felt metal, could sense which support beams were close to failing, and called out warnings that let Alex carry both workers clear seconds before a stack of crates collapsed.", "backdrop": "warehouse-fire", "characters": [{ "id": "sam", "pose": "reaching", "position": "right", "intensity": 1.0 }], "fx": "metal-reshape", "transition": "fade", "audioCue": "metal shimmer" },
+    { "id": "fire-05", "type": "dialog", "speaker": "Farrukh", "text": "You doing okay over there, Kevin?", "backdrop": "warehouse-fire", "characters": [{ "id": "farrukh", "pose": "tense", "position": "left", "intensity": 0.9 }], "fx": "ant-trail", "transition": "fade" },
+    { "id": "fire-06", "type": "dialog", "speaker": "Alex", "text": "Bro, is Kevin helping?", "backdrop": "warehouse-fire", "characters": [{ "id": "farrukh", "pose": "tense", "position": "left", "intensity": 0.9 }, { "id": "alex", "pose": "rising", "position": "right", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "fire-07", "type": "dialog", "speaker": "Farrukh", "text": "Kevin's here. That counts.", "backdrop": "warehouse-fire", "characters": [{ "id": "farrukh", "pose": "idle", "position": "center", "intensity": 0.95 }], "fx": "ant-trail", "transition": "fade" },
+    { "id": "fire-08", "type": "narration", "text": "Nobody was hurt. Two workers sat on the curb, shaken but unharmed, with no clear explanation for how they'd gotten out.", "backdrop": "warehouse-fire", "characters": [], "fx": "none", "transition": "slow-fade" },
+    { "id": "fire-09", "type": "narration", "text": "Driving home that evening — five people crammed into Alex's car — there was a feeling in the car that Robert, for the first time in longer than he could remember, didn't have a single cynical thought about. It felt like they'd done something that mattered.", "backdrop": "sunset-window", "characters": [{ "id": "robert", "pose": "idle", "position": "left", "intensity": 0.9 }, { "id": "alex", "pose": "idle", "position": "center", "intensity": 0.95 }, { "id": "sam", "pose": "idle", "position": "right", "intensity": 0.9 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "section-break-13", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
+
+    { "id": "name-01", "type": "narration", "text": "It was around this time that Robert, of all people, brought up the question of a name.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "tense", "position": "center", "intensity": 0.9 }], "fx": "none", "transition": "iris" },
+    { "id": "name-02", "type": "dialog", "speaker": "Robert", "text": "I've spent six years in rooms where the first thing anyone asks is what's this called, what do we call it. Names matter. They give people something to hold onto.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "name-03", "type": "dialog", "speaker": "Robert", "text": "The flash. The thing that started all this. Red. For all of us, no matter where we were — that's the one thing that actually connects us. A strike. Red. Out of nowhere.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "rising", "position": "center", "intensity": 1.0 }], "fx": "red-streak", "transition": "fade", "audioCue": "streak" },
+    { "id": "name-04", "type": "dialog", "speaker": "Robert", "text": "The Red Strike.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "idle", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "name-05", "type": "dialog", "speaker": "Kassidy", "text": "I like it.", "backdrop": "alex-kitchen", "characters": [{ "id": "kassidy", "pose": "idle", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "name-06", "type": "dialog", "speaker": "Alex", "text": "It's official. Congratulations, Rob. You named the thing. That's a real moment. I'm proud of you.", "backdrop": "alex-kitchen", "characters": [{ "id": "alex", "pose": "idle", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "section-break-14", "type": "transition", "text": "· · ·", "backdrop": "void", "characters": [], "fx": "none", "transition": "fade" },
+
+    { "id": "map-01", "type": "narration", "text": "It was the first of May when Kassidy told them about the others.", "backdrop": "alex-kitchen", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "iris", "marker": "XII." },
+    { "id": "map-02", "type": "narration", "text": "They were all there — all five of them, gathered in Alex's apartment on a warm evening, the windows open, the sound of LA traffic drifting up from the street below.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "seated", "position": "left", "intensity": 0.85 }, { "id": "alex", "pose": "seated", "position": "center", "intensity": 0.85 }, { "id": "kassidy", "pose": "tense", "position": "right", "intensity": 0.95 }], "fx": "none", "transition": "fade", "audioCue": "distant traffic" },
+    { "id": "map-03", "type": "narration", "text": "A video began to play. Grainy. Dashcam footage, the same fish-eyed quality as the very first clip that had started all of this. Except this footage wasn't from LA.", "backdrop": "dublin-street", "characters": [], "fx": "none", "transition": "slow-fade" },
+    { "id": "map-04", "type": "narration", "text": "It showed a city street — narrow, old brick buildings crowded close together — and a delivery truck, brakes clearly failing, sliding toward a crowd of pedestrians at an intersection. And then, at the very edge of the frame, a man — tall, dark-haired, moving with an easy, unhurried confidence — raised one hand, almost casually, toward the truck.", "backdrop": "dublin-street", "characters": [], "fx": "none", "transition": "fade" },
+    { "id": "map-05", "type": "moment", "text": "The truck stopped. Dead. The way nothing moving at that speed should be able to stop.", "backdrop": "dublin-street", "characters": [], "fx": "truck-stop", "transition": "fade", "audioCue": "skid" },
+    { "id": "map-06", "type": "narration", "text": "The man lowered his hand, and walked on, like nothing had happened.", "backdrop": "dublin-street", "characters": [], "fx": "none", "transition": "slow-fade" },
+    { "id": "map-07", "type": "dialog", "speaker": "Kassidy", "text": "That footage is from Dublin. Filmed three weeks ago. I found it about two weeks ago, and I've spent the time since then verifying it, because — because it's not the only one.", "backdrop": "alex-kitchen", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "iris" },
+    { "id": "map-08", "type": "narration", "text": "She opened a new window. A map — not the world, this time, but zoomed in. Western Europe. A handful of small red markers.", "backdrop": "alex-kitchen", "characters": [{ "id": "kassidy", "pose": "reaching", "position": "center", "intensity": 1.0 }], "fx": "map-pulse", "transition": "slow-fade", "audioCue": "map pulse" },
+    { "id": "map-09", "type": "dialog", "speaker": "Kassidy", "text": "There are six markers on this map. Six locations outside the United States, each with at least one verified, high-confidence incident consistent with what we can do — strength, speed, manipulation of matter or space, things that shouldn't be physically possible, performed by ordinary people who otherwise have no explanation for how they did it.", "backdrop": "alex-kitchen", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "map-pulse", "transition": "fade" },
+    { "id": "map-10", "type": "dialog", "speaker": "Kassidy", "text": "Two in Ireland. One in Scotland. Two in Russia. Six locations — but some of them, like ours, appear to involve more than one person. When I account for that, as best I can, the number of individuals I'm fairly confident about, worldwide, including the five of us—", "backdrop": "alex-kitchen", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "map-pulse", "transition": "fade" },
+    { "id": "map-11", "type": "dialog", "speaker": "Kassidy", "text": "—is eleven.", "backdrop": "alex-kitchen", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "slow-fade", "audioCue": "single struck bell" },
+    { "id": "map-12", "type": "dialog", "speaker": "Robert", "text": "Eleven. So — six more, beyond us.", "backdrop": "alex-kitchen", "characters": [{ "id": "robert", "pose": "tense", "position": "left", "intensity": 1.0 }, { "id": "kassidy", "pose": "idle", "position": "right", "intensity": 0.9 }], "fx": "none", "transition": "fade" },
+    { "id": "map-13", "type": "dialog", "speaker": "Kassidy", "text": "At minimum. Eleven people, all of whom, as far as I can tell, have no idea any of the others exist. Spread across four countries now, including us. All of them figuring this out completely alone, the way we were, before we found each other.", "backdrop": "alex-kitchen", "characters": [{ "id": "kassidy", "pose": "tense", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "fade" },
+    { "id": "map-14", "type": "dialog", "speaker": "Sam", "text": "So what do we do?", "backdrop": "alex-kitchen", "characters": [{ "id": "sam", "pose": "tense", "position": "center", "intensity": 0.95 }], "fx": "none", "transition": "fade" },
+    { "id": "map-15", "type": "dialog", "speaker": "Kassidy", "text": "I think we go find them.", "backdrop": "alex-kitchen", "characters": [{ "id": "kassidy", "pose": "rising", "position": "center", "intensity": 1.0 }], "fx": "none", "transition": "slow-fade" },
+    { "id": "map-16", "type": "narration", "text": "Outside, the warm May evening went on, indifferent, the way evenings do. Inside, five people sat in a small apartment in Los Angeles, looking at a map with six small red marks on it, and understood — each in their own way, each at their own pace — that whatever this was, it was bigger than the five of them.", "backdrop": "sunset-window", "characters": [], "fx": "none", "transition": "slow-fade", "audioCue": "low drone" },
+    { "id": "map-17", "type": "narration", "text": "It was bigger than they'd known to imagine.", "backdrop": "cosmos", "characters": [], "fx": "none", "transition": "slow-fade" },
+    { "id": "outro-break", "type": "transition", "text": "End of Chapter One.", "backdrop": "cosmos", "characters": [], "fx": "none", "transition": "slow-fade", "audioCue": "single struck bell" }
   ]
 }

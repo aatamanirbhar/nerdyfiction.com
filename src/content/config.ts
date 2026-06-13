@@ -18,12 +18,22 @@ const sceneSchema = z.object({
   speaker: z.string().optional(),
   // Visual layer
   backdrop: z.enum([
-    'cosmos',        // animated starfield, deep void
-    'studio-city',   // warm-amber office at dusk, traffic glow through tinted glass
-    'inglewood',     // green-tinted plasma TV light in a cramped apartment
-    'void',          // pure black, used for impact moments
-    'flash-red',     // single-frame red lightning streak
-    'sunset-window', // soft warm gradient + slow LA traffic
+    'cosmos',          // animated starfield, deep void
+    'studio-city',     // warm-amber office at dusk, traffic glow through tinted glass
+    'inglewood',       // green-tinted plasma TV light in a cramped apartment
+    'void',            // pure black, used for impact moments
+    'flash-red',       // single-frame red lightning streak
+    'sunset-window',   // soft warm gradient + slow LA traffic
+    'vernon-yard',     // corrugated steel scrap yard back office, blue tv glow
+    'dc-lab',          // cool blue research lab with monitor glow
+    'scottsdale-shop', // amber jewelry workshop with focused lamp pool
+    'alex-kitchen',    // warm domestic kitchen at night
+    'la-alley',        // grimy alley under sodium light
+    'la-freeway',      // night freeway with red brake lights
+    'warehouse-fire',  // smoke + orange flame glow
+    'ohio-night',      // small-town highway, headlights through fog
+    'dublin-street',   // narrow brick european street, dashcam tint
+    'apartment-dark',  // dim domestic interior at night
     'blank',
   ]).default('cosmos'),
   // Character silhouettes on stage (max 3 visible)
@@ -34,7 +44,21 @@ const sceneSchema = z.object({
     intensity: z.number().min(0).max(1).default(0.85),
   })).default([]),
   // Special FX to play when this scene is entered
-  fx: z.enum(['none', 'red-streak', 'flash', 'book-float', 'time-pinch', 'tilt-world']).default('none'),
+  fx: z.enum([
+    'none',
+    'red-streak',
+    'flash',
+    'book-float',
+    'time-pinch',
+    'tilt-world',
+    'glass-slide',     // an object slides across the screen (Robert's first push)
+    'metal-reshape',   // shimmering metallic ripple (Sam's power)
+    'energy-transfer', // glow passing from one figure to another (Alex's power)
+    'ant-trail',       // tiny moving dot crossing the stage (Farrukh)
+    'data-stream',     // monitor characters cascade (Kassidy)
+    'truck-stop',      // hard skid + dust (Dublin clip)
+    'map-pulse',       // pulsing red dots on a world map
+  ]).default('none'),
   // Transition into THIS scene from the previous one
   transition: z.enum(['cut', 'fade', 'slow-fade', 'flash', 'iris']).default('fade'),
   // Audio cue label (no asset shipped; reader UI just shows the cue)
