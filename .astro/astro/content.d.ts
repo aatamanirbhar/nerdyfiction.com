@@ -151,11 +151,13 @@ declare module 'astro:content' {
   data: InferEntrySchema<"books">
 };
 };
-"chapters": Record<string, {
-  id: string;
+"chapters": {
+"ordinary-gods-1": {
+	id: "ordinary-gods-1";
   collection: "chapters";
-  data: InferEntrySchema<"chapters">;
-}>;
+  data: InferEntrySchema<"chapters">
+};
+};
 
 	};
 
